@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    .chapter-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+    }
+    .chapter-card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        border-left: 4px solid var(--accent);
+        display: block;
+    }
+    .chapter-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .chapter-card h2 {
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+    .chapter-card p {
+        color: var(--text-light);
+        font-size: 0.95em;
+    }
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>课程知识点整理与总结</p>
+</div>
+</header>
+<div class="container">
+<div class="chapter-list">
+<a class="chapter-card" href="ch8.html">
+<h2>第八章 多元函数积分学</h2>
+<p>二重积分、二重积分的计算、变量替换、三重积分、曲面面积</p>
+</a>
+<a class="chapter-card" href="ch9.html">
+<h2>第九章 曲线积分与曲面积分</h2>
+<p>空间曲线与弧长、曲线积分、曲面积分、Gauss公式与Stokes公式、梯度散度旋度</p>
+</a>
+<a class="chapter-card" href="ch10.html">
+<h2>第十章 无穷级数</h2>
+<p>无穷级数的基本概念、正项级数、任意项级数、无穷乘积</p>
+</a>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

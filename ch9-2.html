@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§2 曲线积分 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第九章 曲线积分与曲面积分</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch9.html">← 返回目录</a>
+<div class="content-section">
+<h2>§2 曲线积分</h2>
+<h3>2.1 第一类曲线积分（对弧长的曲线积分）</h3>
+<div class="knowledge-item definition">
+<h4>定义（第一类曲线积分）</h4>
+<p>设 \(L\) 为空间中一条可求长曲线，\(f(x, y, z)\) 定义在 \(L\) 上。对 \(L\) 作分割 \(T\)，在每段弧 \(\Delta s_{i}\) 上任取一点 \((\xi_{i}, \eta_{i}, \zeta_{i})\)，作和式</p>
+<div class="formula">\(\sum\limits_{i} f(\xi_{i}, \eta_{i}, \zeta_{i}) \Delta s_{i}\)</div>
+<p>若当分割的细度 \(\|T\| \to 0\) 时，该和式极限存在且与分割和取点无关，则称此极限为 \(f\) 在 \(L\) 上的<strong>第一类曲线积分</strong>，记为</p>
+<div class="formula">\(\int_{L} f(x, y, z) \, ds\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.1（第一类曲线积分的计算）</h4>
+<p>设曲线 \(L: x = x(t), y = y(t), z = z(t)\)（\(t \in [\alpha, \beta]\)）为光滑曲线，\(f\) 在 \(L\) 上连续，则</p>
+<div class="formula">\(\int_{L} f(x, y, z) \, ds = \int_{\alpha}^{\beta} f\bigl(x(t), y(t), z(t)\bigr) \sqrt{[x'(t)]^{2} + [y'(t)]^{2} + [z'(t)]^{2}} \, dt\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>第一类曲线积分具有以下性质：</p>
+<p>(1) <strong>线性性</strong>：\(\int_{L} (\alpha f + \beta g) \, ds = \alpha \int_{L} f \, ds + \beta \int_{L} g \, ds\)</p>
+<p>(2) <strong>可加性</strong>：若 \(L = L_{1} + L_{2}\)，则 \(\int_{L} f \, ds = \int_{L_{1}} f \, ds + \int_{L_{2}} f \, ds\)</p>
+<p>(3) <strong>与定向无关</strong>：\(\int_{AB} f \, ds = \int_{BA} f \, ds\)（第一类曲线积分与曲线方向无关）</p>
+</div>
+<h3>2.2 第二类曲线积分（对坐标的曲线积分）</h3>
+<div class="knowledge-item definition">
+<h4>定义（第二类曲线积分）</h4>
+<p>设 \(L\) 为有向光滑曲线，向量值函数 \(\boldsymbol{f} = (P, Q, R)\) 定义在 \(L\) 上。<strong>第二类曲线积分</strong>定义为</p>
+<div class="formula">\(\int_{L} \boldsymbol{f} \cdot d\boldsymbol{s} = \int_{L} P \, dx + Q \, dy + R \, dz\)</div>
+<p>其中 \(dx, dy, dz\) 是弧长微元 \(ds\) 在坐标轴上的投影：\((dx, dy, dz) = (\cos\alpha, \cos\beta, \cos\gamma) \, ds\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.2（第二类曲线积分的计算）</h4>
+<p>设曲线 \(L: x = x(t), y = y(t), z = z(t)\)（\(t: \alpha \to \beta\)）为光滑有向曲线，则</p>
+<div class="formula">\(\int_{L} P \, dx + Q \, dy + R \, dz = \int_{\alpha}^{\beta} \bigl[P(x(t), y(t), z(t)) x'(t) + Q(x(t), y(t), z(t)) y'(t) + R(x(t), y(t), z(t)) z'(t)\bigr] \, dt\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>第二类曲线积分与第一类的区别：</p>
+<p>(1) <strong>与定向有关</strong>：\(\int_{AB} \boldsymbol{f} \cdot d\boldsymbol{s} = -\int_{BA} \boldsymbol{f} \cdot d\boldsymbol{s}\)</p>
+<p>(2) <strong>线性性</strong>与<strong>可加性</strong>同样成立。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.3（两类曲线积分的联系）</h4>
+<p>设 \(L\) 的单位切向量为 \(\boldsymbol{\tau} = (\cos\alpha, \cos\beta, \cos\gamma)\)，则</p>
+<div class="formula">\(\int_{L} \boldsymbol{f} \cdot d\boldsymbol{s} = \int_{L} (P\cos\alpha + Q\cos\beta + R\cos\gamma) \, ds = \int_{L} \boldsymbol{f} \cdot \boldsymbol{\tau} \, ds\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（重力做功）</h4>
+<p>设质点沿曲线 \(L\) 从 \(A\) 移动到 \(B\)，重力 \(\boldsymbol{F} = (0, 0, -mg)\) 做功为</p>
+<div class="formula">\(W = \int_{L} \boldsymbol{F} \cdot d\boldsymbol{s} = \int_{L} (-mg)\,dz = -mg\,(z_{B} - z_{A}) = mg(z_{A} - z_{B})\)</div>
+<p>可见重力做功与路径无关，只与起止点的高度差有关。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（第二类曲线积分计算）</h4>
+<p>计算 \(I = \int_{L} y\,dx + z\,dy + x\,dz\)，其中</p>
+<p>\(L_{1}\)：螺旋线 \(x = a\cos t, y = a\sin t, z = bt\)，\(t \in [0, 2\pi]\)，</p>
+<p>\(L_{2}\)：直线段 \(x = a, y = 0\)，\(z: 0 \to 2\pi b\)。</p>
+<p>解：沿 \(L_{1}\)，\(I_{1} = \int_{0}^{2\pi} [-a^{2}\sin^{2}t + bt\,a\cos t + a\cos t \cdot b]\,dt = -a^{2}\pi\)。</p>
+<p>沿 \(L_{2}\)，\(I_{2} = \int_{0}^{2\pi b} a\,dt = 2\pi ab\)。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

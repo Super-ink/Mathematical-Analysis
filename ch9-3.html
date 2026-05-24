@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§3 曲面积分 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第九章 曲线积分与曲面积分</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch9.html">← 返回目录</a>
+<div class="content-section">
+<h2>§3 曲面积分</h2>
+<h3>3.1 第一类曲面积分（对面积的曲面积分）</h3>
+<div class="knowledge-item definition">
+<h4>定义（第一类曲面积分）</h4>
+<p>设 \(S\) 为空间中一张可求面积的光滑曲面，\(f(x, y, z)\) 定义在 \(S\) 上。将 \(S\) 分割为 \(n\) 个小曲面片 \(\Delta S_{i}\)，任取 \((\xi_{i}, \eta_{i}, \zeta_{i}) \in \Delta S_{i}\)，作和式</p>
+<div class="formula">\(\sum\limits_{i=1}^{n} f(\xi_{i}, \eta_{i}, \zeta_{i}) \Delta S_{i}\)</div>
+<p>若当分割的最大直径 \(\|T\| \to 0\) 时，和式极限存在且与分割和取点无关，则称此极限为 \(f\) 在 \(S\) 上的<strong>第一类曲面积分</strong>，记为</p>
+<div class="formula">\(\iint_{S} f(x, y, z) \, dS\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.1（参数形式的曲面积分计算）</h4>
+<p>若曲面 \(S\) 有参数表示</p>
+<div class="formula">\(S: \quad \begin{cases} x = x(u, v), \\ y = y(u, v), \\ z = z(u, v), \end{cases} \quad (u, v) \in D\)</div>
+<p>且 \(x, y, z \in C^{1}(D)\)，则第一类曲面积分可化为二重积分：</p>
+<div class="formula">\(\iint_{S} f(x, y, z) \, dS = \iint_{D} f\bigl(x(u, v), y(u, v), z(u, v)\bigr) \sqrt{EG - F^{2}} \, du \, dv\)</div>
+<p>其中 \(E = x_{u}^{2} + y_{u}^{2} + z_{u}^{2},\; F = x_{u}x_{v} + y_{u}y_{v} + z_{u}z_{v},\; G = x_{v}^{2} + y_{v}^{2} + z_{v}^{2}\) 为曲面第一基本量。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.2（显式形式的曲面积分计算）</h4>
+<p>若曲面 \(S\) 可表示为 \(z = g(x, y)\)，\((x, y) \in D\)，且 \(g \in C^{1}(D)\)，则</p>
+<div class="formula">\(\iint_{S} f(x, y, z) \, dS = \iint_{D} f\bigl(x, y, g(x, y)\bigr) \sqrt{1 + g_{x}^{2} + g_{y}^{2}} \, dx \, dy\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>第一类曲面积分与曲面的定向无关，其性质（线性性、可加性）与第一类曲线积分类似。</p>
+</div>
+<h3>3.2 第二类曲面积分（对坐标的曲面积分）</h3>
+<div class="knowledge-item definition">
+<h4>定义（有向曲面）</h4>
+<p>取定了法向量方向的曲面称为<strong>有向曲面</strong>。通常封闭曲面取外侧为正方向，非封闭曲面则需指定法向量的指向。</p>
+<p>如果曲面 \(S\) 由参数方程 \(\boldsymbol{r} = \boldsymbol{r}(u,v)\) 给出，则法向量 \(\boldsymbol{n}\) 的方向由 \(\boldsymbol{r}_{u} \times \boldsymbol{r}_{v}\) 的指向决定。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（第二类曲面积分）</h4>
+<p>设 \(S\) 为有向光滑曲面，向量值函数 \(\boldsymbol{f} = (P, Q, R)\) 定义在 \(S\) 上。<strong>第二类曲面积分</strong>定义为</p>
+<div class="formula">\(\iint_{S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS = \iint_{S} P \, dy \, dz + Q \, dz \, dx + R \, dx \, dy\)</div>
+<p>其中 \(dy \, dz, dz \, dx, dx \, dy\) 是有向面积微元在三个坐标平面上的投影，\(dydz = \cos\alpha \, dS\)，\(dzdx = \cos\beta \, dS\)，\(dxdy = \cos\gamma \, dS\)，\((\cos\alpha, \cos\beta, \cos\gamma)\) 为单位法向量。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（外微分形式）</h4>
+<p>记 \(dx \wedge dy\) 为外微分中的楔积，则有 \(dx \wedge dy = -dy \wedge dx\)。第二类曲面积分可写为</p>
+<div class="formula">\(\iint_{S} P \, dy \wedge dz + Q \, dz \wedge dx + R \, dx \wedge dy\)</div>
+<p>即对坐标的曲面积分是有向的，交换两个坐标微分变号。</p>
+</div>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>(1) <strong>与定向有关</strong>：\(\iint_{-S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS = -\iint_{S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS\)</p>
+<p>(2) <strong>线性性</strong>：\(\iint_{S} (\alpha \boldsymbol{f} + \beta \boldsymbol{g}) \cdot \boldsymbol{n} \, dS = \alpha \iint_{S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS + \beta \iint_{S} \boldsymbol{g} \cdot \boldsymbol{n} \, dS\)</p>
+<p>(3) <strong>可加性</strong>：若 \(S = S_{1} + S_{2}\)，则 \(\iint_{S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS = \iint_{S_{1}} \boldsymbol{f} \cdot \boldsymbol{n} \, dS + \iint_{S_{2}} \boldsymbol{f} \cdot \boldsymbol{n} \, dS\)</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.3（参数形式的第二类曲面积分计算）</h4>
+<p>设曲面 \(S\) 有参数表示 \(\boldsymbol{r} = \boldsymbol{r}(u, v) = (x(u,v), y(u,v), z(u,v))\)，\((u, v) \in D\)，则</p>
+<div class="formula">\(\iint_{S} P \, dy \, dz + Q \, dz \, dx + R \, dx \, dy = \iint_{D} \left[P \frac{\partial(y,z)}{\partial(u,v)} + Q \frac{\partial(z,x)}{\partial(u,v)} + R \frac{\partial(x,y)}{\partial(u,v)}\right] du \, dv\)</div>
+<p>其中符号由法向量的指向决定（顺时针或逆时针）。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.4（显式形式的第二类曲面积分计算）</h4>
+<p>若曲面 \(S\) 可表示为 \(z = f(x, y)\)，\((x, y) \in D\)，取上侧为正，则</p>
+<div class="formula">\(\iint_{S} P \, dy \, dz + Q \, dz \, dx + R \, dx \, dy = \iint_{D} \left[P(-f_{x}) + Q(-f_{y}) + R\right] dx \, dy\)</div>
+<p>若取下侧，则整体加负号。类似地，对 \(y = g(z, x)\) 或 \(x = h(y, z)\) 有相应的公式。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.5（两类曲面积分的联系）</h4>
+<p>设 \(S\) 的单位法向量为 \(\boldsymbol{n} = (\cos\alpha, \cos\beta, \cos\gamma)\)，则</p>
+<div class="formula">\(\iint_{S} \boldsymbol{f} \cdot \boldsymbol{n} \, dS = \iint_{S} (P \cos\alpha + Q \cos\beta + R \cos\gamma) \, dS = \iint_{S} P \, dy \, dz + Q \, dz \, dx + R \, dx \, dy\)</div>
+<p>即有向面积微元满足 \((dy \, dz, dz \, dx, dx \, dy) = \boldsymbol{n} \, dS\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>第一类曲面积分与第二类曲面积分的关系，类似于第一类曲线积分与第二类曲线积分的关系——前者与定向无关，后者与定向有关。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

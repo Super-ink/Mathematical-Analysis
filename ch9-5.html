@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§5 梯度、散度与旋度 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第九章 曲线积分与曲面积分</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch9.html">← 返回目录</a>
+<div class="content-section">
+<h2>§5 梯度、散度与旋度</h2>
+<h3>5.1 Hamilton算子</h3>
+<div class="knowledge-item definition">
+<h4>定义（Hamilton算子 \(\nabla\)）</h4>
+<p>Hamilton算子（Nabla算子）定义为形式向量</p>
+<div class="formula">\(\nabla = \left(\frac{\partial}{\partial x},\; \frac{\partial}{\partial y},\; \frac{\partial}{\partial z}\right)\)</div>
+<p>它是一个微分算子，作用于标量函数和向量值函数分别得到梯度、散度和旋度。</p>
+</div>
+<h3>5.2 梯度</h3>
+<div class="knowledge-item definition">
+<h4>定义（梯度）</h4>
+<p>设 \(f(x, y, z)\) 为可微的标量函数，则 \(f\) 的<strong>梯度</strong>定义为</p>
+<div class="formula">\(\operatorname{grad} f = \nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right)\)</div>
+<p>梯度是一个向量，其方向是函数 \(f\) 增长最快的方向，其模长是方向导数的最大值。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（方向导数）</h4>
+<p>设 \(\boldsymbol{l} = (\cos\alpha, \cos\beta, \cos\gamma)\) 为单位向量，则 \(f\) 沿方向 \(\boldsymbol{l}\) 的<strong>方向导数</strong>定义为</p>
+<div class="formula">\(\frac{\partial f}{\partial \boldsymbol{l}} = \nabla f \cdot \boldsymbol{l} = \frac{\partial f}{\partial x} \cos\alpha + \frac{\partial f}{\partial y} \cos\beta + \frac{\partial f}{\partial z} \cos\gamma\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 5.1（梯度与方向导数）</h4>
+<p>\(\frac{\partial f}{\partial \boldsymbol{l}} = |\nabla f| \cos\theta\)，其中 \(\theta\) 为 \(\nabla f\) 与 \(\boldsymbol{l}\) 的夹角。因此：</p>
+<p>(1) 当 \(\boldsymbol{l}\) 与 \(\nabla f\) 同向时，方向导数最大，为 \(|\nabla f|\)；</p>
+<p>(2) 等值面 \(f(x, y, z) = c\) 上一点处的梯度方向与该点的切平面垂直（即法向）。</p>
+</div>
+<h3>5.3 散度</h3>
+<div class="knowledge-item definition">
+<h4>定义（散度）</h4>
+<p>设向量值函数 \(\boldsymbol{F}(x, y, z) = (P(x, y, z), Q(x, y, z), R(x, y, z))\) 且 \(P, Q, R \in C^{1}\)，则 \(\boldsymbol{F}\) 的<strong>散度</strong>定义为</p>
+<div class="formula">\(\operatorname{div} \boldsymbol{F} = \nabla \cdot \boldsymbol{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\)</div>
+<p>散度是一个标量，衡量向量场的"发散程度"。</p>
+</div>
+<h3>5.4 旋度</h3>
+<div class="knowledge-item definition">
+<h4>定义（旋度）</h4>
+<p>设向量值函数 \(\boldsymbol{F} = (P, Q, R) \in C^{1}\)，则 \(\boldsymbol{F}\) 的<strong>旋度</strong>定义为</p>
+<div class="formula">\(\operatorname{rot} \boldsymbol{F} = \nabla \times \boldsymbol{F} = \begin{vmatrix} \boldsymbol{i} &amp; \boldsymbol{j} &amp; \boldsymbol{k} \\ \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y} &amp; \frac{\partial}{\partial z} \\ P &amp; Q &amp; R \end{vmatrix} = \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\)</div>
+<p>旋度是一个向量，衡量向量场的"旋转程度"。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 5.2（重要恒等式）</h4>
+<p>(1) \(\operatorname{rot}(\operatorname{grad} f) = \nabla \times (\nabla f) = \boldsymbol{0}\)（梯度场无旋）</p>
+<p>(2) \(\operatorname{div}(\operatorname{rot} \boldsymbol{F}) = \nabla \cdot (\nabla \times \boldsymbol{F}) = 0\)（旋度场无散）</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>利用梯度、散度、旋度，Gauss公式和Stokes公式可简洁地表述为：</p>
+<p>Gauss公式：\(\iiint_{\Omega} \operatorname{div} \boldsymbol{F} \, dV = \iint_{\partial\Omega} \boldsymbol{F} \cdot \boldsymbol{n} \, dS\)</p>
+<p>Stokes公式：\(\iint_{S} (\operatorname{rot} \boldsymbol{F}) \cdot \boldsymbol{n} \, dS = \oint_{\partial S} \boldsymbol{F} \cdot d\boldsymbol{s}\)</p>
+</div>
+<h3>5.5 散度与旋度的性质</h3>
+<div class="knowledge-item proposition">
+<h4>散度的运算性质</h4>
+<p>设 \(\boldsymbol{F}_{1}, \boldsymbol{F}_{2}\) 为向量场，\(\varphi\) 为标量函数，\(c_{1}, c_{2}\) 为常数，则</p>
+<p>(1) <strong>线性性</strong>：\(\operatorname{div}(c_{1}\boldsymbol{F}_{1} + c_{2}\boldsymbol{F}_{2}) = c_{1}\operatorname{div}\boldsymbol{F}_{1} + c_{2}\operatorname{div}\boldsymbol{F}_{2}\)</p>
+<p>(2) <strong>乘积法则</strong>：\(\operatorname{div}(\varphi \boldsymbol{F}) = \varphi \operatorname{div}\boldsymbol{F} + \nabla\varphi \cdot \boldsymbol{F}\)</p>
+<p>(3) <strong>Laplace算子</strong>：\(\operatorname{div}(\nabla\varphi) = \nabla^{2}\varphi = \frac{\partial^{2}\varphi}{\partial x^{2}} + \frac{\partial^{2}\varphi}{\partial y^{2}} + \frac{\partial^{2}\varphi}{\partial z^{2}}\)</p>
+</div>
+<div class="knowledge-item proposition">
+<h4>旋度的运算性质</h4>
+<p>(1) <strong>线性性</strong>：\(\operatorname{rot}(c_{1}\boldsymbol{F}_{1} + c_{2}\boldsymbol{F}_{2}) = c_{1}\operatorname{rot}\boldsymbol{F}_{1} + c_{2}\operatorname{rot}\boldsymbol{F}_{2}\)</p>
+<p>(2) <strong>乘积法则</strong>：\(\operatorname{rot}(\varphi \boldsymbol{F}) = \varphi \operatorname{rot}\boldsymbol{F} + \nabla\varphi \times \boldsymbol{F}\)</p>
+<p>(3) <strong>梯度场无旋</strong>：\(\operatorname{rot}(\nabla\varphi) = \boldsymbol{0}\)（已在定理5.2中给出）</p>
+<p>(4) <strong>旋度场无散</strong>：\(\operatorname{div}(\operatorname{rot}\boldsymbol{F}) = 0\)（已在定理5.2中给出）</p>
+</div>
+<h3>5.6 物理意义</h3>
+<div class="knowledge-item definition">
+<h4>散度的物理意义</h4>
+<p>散度是向量场的<strong>通量密度</strong>：</p>
+<div class="formula">\(\operatorname{div}\boldsymbol{F}(M) = \lim\limits_{V \to \{M\}} \frac{1}{m(V)} \iint_{\partial V} \boldsymbol{F} \cdot \boldsymbol{n} \, dS\)</div>
+<p>其中 \(V\) 是包含点 \(M\) 的立体区域，\(\partial V\) 是其封闭边界。散度的正负表示从该点发出或吸收通量的强度。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>旋度的物理意义</h4>
+<p>旋度在某个方向 \(\boldsymbol{n}\) 上的投影是向量场在该方向的<strong>环量密度</strong>：</p>
+<div class="formula">\(\operatorname{rot}\boldsymbol{F} \cdot \boldsymbol{n}(M) = \lim\limits_{S \to \{M\}} \frac{1}{m(S)} \oint_{\partial S} \boldsymbol{F} \cdot d\boldsymbol{s}\)</div>
+<p>其中 \(S\) 是以 \(\boldsymbol{n}\) 为法向量的光滑曲面。旋度的方向是使环量密度最大的方向，其模为该最大环量密度。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>保守场的条件</h4>
+<p>设 \(\boldsymbol{F} = (P, Q, R) \in C^{1}\)（单连通区域上），则下列条件等价：</p>
+<p>(1) \(\operatorname{rot}\boldsymbol{F} = \boldsymbol{0}\)（无旋）；</p>
+<p>(2) 对任意闭曲线 \(L\)，\(\oint_{L} P\,dx + Q\,dy + R\,dz = 0\)；</p>
+<p>(3) 曲线积分 \(\int_{AB} P\,dx + Q\,dy + R\,dz\) 与路径无关，只与端点有关；</p>
+<p>(4) 存在势函数 \(U\) 使得 \(dU = P\,dx + Q\,dy + R\,dz\)，即 \(\boldsymbol{F} = \nabla U\)。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

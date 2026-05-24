@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§4 无穷乘积 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第十章 无穷级数</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch10.html">← 返回目录</a>
+<div class="content-section">
+<h2>§4 无穷乘积</h2>
+<h3>4.1 无穷乘积的概念</h3>
+<div class="knowledge-item definition">
+<h4>定义（无穷乘积）</h4>
+<p>给定序列（数列）\(\{p_{n}\}\)，\(\prod\limits_{n=1}^{+\infty} p_{n} = p_{1}p_{2}\cdots p_{n}\cdots\) 称为<strong>无穷乘积</strong>，\(p_{n}\) 称为<strong>通项</strong>，\(P_{n} = \prod\limits_{k=1}^{n} p_{k} = p_{1}p_{2}\cdots p_{n}\) 称为<strong>部分积</strong>。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（无穷乘积的收敛与发散）</h4>
+<p>设 \(\{P_{n}\}\) 是 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 的部分积。若 \(\{P_{n}\}\) 有极限且极限值 \(P \neq 0\)，则称 \(\prod\limits_{n=1}^{+\infty} p_{n}\) <strong>收敛</strong>，并记 \(\prod\limits_{n=1}^{+\infty} p_{n} = P\)。</p>
+<p>若 \(\{P_{n}\}\) 无极限或 \(P_{n} \to 0\)（\(n \to +\infty\)），则称 \(\prod\limits_{n=1}^{+\infty} p_{n}\) <strong>发散</strong>。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 1</h4>
+<p>为了统一无穷乘积与对应无穷级数的敛散性，我们将 \(P_{n} \to 0\) 的情形也称作发散。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 2</h4>
+<p>若存在 \(n \in \mathbb{N}\)，使得 \(p_{n} = 0\)，则 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 发散。</p>
+</div>
+<h3>4.2 无穷乘积与无穷级数</h3>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>(1) 若 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 收敛，则 \(\lim\limits_{n\to+\infty} p_{n} = 1\)；</p>
+<p>(2) 若 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 收敛，则余积 \(\prod\limits_{n=m+1}^{+\infty} p_{n} \to 1\)（\(m \to +\infty\)）；</p>
+<p>(3) 若 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 和 \(\prod\limits_{n=1}^{+\infty} q_{n}\) 收敛，则 \(\prod\limits_{n=1}^{+\infty} p_{n}q_{n}\) 和 \(\prod\limits_{n=1}^{+\infty} \frac{p_{n}}{q_{n}}\) 都收敛，且有</p>
+<div class="formula">\(\prod\limits_{n=1}^{+\infty} p_{n}q_{n} = \bigl(\prod\limits_{n=1}^{+\infty} p_{n}\bigr)\bigl(\prod\limits_{n=1}^{+\infty} q_{n}\bigr)\)</div>
+<div class="formula">\(\prod\limits_{n=1}^{+\infty} \frac{p_{n}}{q_{n}} = \frac{\bigl(\prod\limits_{n=1}^{+\infty} p_{n}\bigr)}{\bigl(\prod\limits_{n=1}^{+\infty} q_{n}\bigr)}\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 4.1</h4>
+<p>\(\prod\limits_{n=1}^{+\infty} p_{n}\) 收敛的充要条件是 \(\sum\limits_{n=1}^{+\infty} \ln p_{n}\) 收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>由性质(1)，若 \(\prod\limits_{n=1}^{+\infty} p_{n}\) 收敛，则 \(p_{n} \to 1\)，故我们可假定 \(\forall n \in \mathbb{N}, p_{n} &gt; 0\) 或 \(p_{n} = 1 + a_{n}\)，其中 \(a_{n} \to 0\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（Viete公式）</h4>
+<p>利用恒等式</p>
+<div class="formula">\(\sin\theta = 2^{n} \cos\frac{\theta}{2} \cos\frac{\theta}{4} \cdots \cos\frac{\theta}{2^{n}} \sin\frac{\theta}{2^{n}}\)</div>
+<p>令 \(\theta = \frac{\pi}{2}\)，取极限得Viete公式：</p>
+<div class="formula">\(\frac{2}{\pi} = \cos\frac{\pi}{4} \cdot \cos\frac{\pi}{8} \cdot \cos\frac{\pi}{16} \cdots = \prod\limits_{n=2}^{+\infty} \cos\frac{\pi}{2^{n}}\)</div>
+<p>它是历史上第一个用无穷乘积表示 \(\pi\) 的公式。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>\(\prod\limits_{n=1}^{+\infty} \left(1 + \frac{1}{n}\right)\) 发散。因为 \(\ln(1 + \frac{1}{n}) \sim \frac{1}{n}\)，而 \(\sum \frac{1}{n}\) 发散。</p>
+<p>\(\prod\limits_{n=1}^{+\infty} \left(1 + \frac{1}{n^{p}}\right)\) 当 \(p &gt; 1\) 时收敛，\(p \le 1\) 时发散。</p>
+<p>\(\prod\limits_{n=1}^{+\infty} \cos\frac{1}{n}\) 收敛。因为 \(\ln\cos\frac{1}{n} \sim -\frac{1}{2n^{2}}\)，而 \(\sum \frac{1}{n^{2}}\) 收敛。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 4.2</h4>
+<p>设 \(a_{n} \ge 0\)（或 \(-1 &lt; a_{n} \le 0\)），则 \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 收敛的充要条件为 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>定理4.2的条件（\(a_{n}\) 同号）是必要的。不能改为"\(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 收敛的充要条件为 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 和 \(\sum\limits_{n=1}^{+\infty} a_{n}^{2}\) 都收敛"——反例见定理4.3后的注。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 4.3</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛，则 \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 收敛的充要条件为 \(\sum\limits_{n=1}^{+\infty} a_{n}^{2}\) 收敛。</p>
+</div>
+<h3>4.3 无穷乘积的绝对收敛和条件收敛</h3>
+<div class="knowledge-item definition">
+<h4>定义（无穷乘积的绝对收敛与条件收敛）</h4>
+<p>当 \(\sum\limits_{n=1}^{+\infty} \ln p_{n}\) 绝对收敛时，我们称 \(\prod\limits_{n=1}^{+\infty} p_{n}\) <strong>绝对收敛</strong>。</p>
+<p>当 \(\sum\limits_{n=1}^{+\infty} \ln p_{n}\) 条件收敛时，我们称 \(\prod\limits_{n=1}^{+\infty} p_{n}\) <strong>条件收敛</strong>。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>绝对收敛的无穷乘积满足乘法的交换律，而条件收敛的无穷乘积未必满足。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 4.4</h4>
+<p>设 \(a_{n} &gt; -1\)（\(n = 1, 2, \ldots\)），则下列命题等价：</p>
+<p>(1) \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 绝对收敛；</p>
+<p>(2) \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(3) \(\prod\limits_{n=1}^{+\infty} (1 + |a_{n}|)\) 收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>由上述定理，我们有如下等价定义：若 \(\prod\limits_{n=1}^{+\infty} (1 + |a_{n}|)\) 收敛，称 \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 绝对收敛；若 \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 收敛，\(\prod\limits_{n=1}^{+\infty} (1 + |a_{n}|)\) 发散，称 \(\prod\limits_{n=1}^{+\infty} (1 + a_{n})\) 条件收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>对绝对收敛的无穷乘积，其重排乘积也绝对收敛，且不改变其积。对条件收敛的无穷乘积，可作适当重排，使其积等于任意的正数或发散。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

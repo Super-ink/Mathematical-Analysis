@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§2 二重积分的计算 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第八章 多元函数积分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch8.html">← 返回目录</a>
+<div class="content-section">
+<h2>§2 二重积分的计算</h2>
+<h3>2.1 矩形区域上的累次积分</h3>
+<div class="knowledge-item theorem">
+<h4>定理 2.1（矩形区域上的累次积分）</h4>
+<p>设 \(D = [a, b] \times [c, d]\)，\(f(x, y)\) 在 \(D\) 上可积。若对每个 \(x \in [a, b]\)，积分 \(F(x) = \int_{c}^{d} f(x, y)\,dy\) 存在，则</p>
+<div class="formula">\(\iint_{D} f(x, y)\,dx\,dy = \int_{a}^{b} \left[\int_{c}^{d} f(x, y)\,dy\right] dx\)</div>
+<p>类似地，若对每个 \(y \in [c, d]\)，\(\int_{a}^{b} f(x, y)\,dx\) 存在，则</p>
+<div class="formula">\(\iint_{D} f(x, y)\,dx\,dy = \int_{c}^{d} \left[\int_{a}^{b} f(x, y)\,dx\right] dy\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>交换积分次序的公式一般写作</p>
+<div class="formula">\(\int_{a}^{b} dx \int_{c}^{d} f(x, y)\,dy = \int_{c}^{d} dy \int_{a}^{b} f(x, y)\,dx\)</div>
+<p>成立的条件为：\(f\) 在 \(D\) 上可积，且内层积分存在。</p>
+</div>
+<h3>2.2 x-型区域与y-型区域</h3>
+<div class="knowledge-item theorem">
+<h4>定理 2.2（x-型区域上的累次积分）</h4>
+<p>设 \(D = \{(x, y) \mid a \le x \le b,\; \varphi_{1}(x) \le y \le \varphi_{2}(x)\}\)，其中 \(\varphi_{1}, \varphi_{2}\) 在 \([a,b]\) 上连续，\(f\) 在 \(D\) 上可积，则</p>
+<div class="formula">\(\iint_{D} f(x, y)\,dx\,dy = \int_{a}^{b} \left[\int_{\varphi_{1}(x)}^{\varphi_{2}(x)} f(x, y)\,dy\right] dx\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.3（y-型区域上的累次积分）</h4>
+<p>设 \(D = \{(x, y) \mid c \le y \le d,\; \psi_{1}(y) \le x \le \psi_{2}(y)\}\)，其中 \(\psi_{1}, \psi_{2}\) 在 \([c,d]\) 上连续，\(f\) 在 \(D\) 上可积，则</p>
+<div class="formula">\(\iint_{D} f(x, y)\,dx\,dy = \int_{c}^{d} \left[\int_{\psi_{1}(y)}^{\psi_{2}(y)} f(x, y)\,dx\right] dy\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>使用定理2.2时，要求对每个 \(x \in [a,b]\)，竖直线与区域 \(D\) 的交集是线段（或空集）。将区域分解为若干x-型或y-型子区域的并，分别积分再相加。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>计算 \(I = \iint_{D} xy\,dx\,dy\)，其中 \(D\) 由 \(y^{2} = x\) 和 \(y = x - 2\) 围成。</p>
+<p>解：\(D\) 可分解为两个x-型区域：</p>
+<div class="formula">\(D_{1} = \{(x, y) \mid 0 \le x \le 1,\; -\sqrt{x} \le y \le \sqrt{x}\}\)</div>
+<div class="formula">\(D_{2} = \{(x, y) \mid 1 \le x \le 4,\; x-2 \le y \le \sqrt{x}\}\)</div>
+<p>\(I = \int_{0}^{1} dx\int_{-\sqrt{x}}^{\sqrt{x}} xy\,dy + \int_{1}^{4} dx\int_{x-2}^{\sqrt{x}} xy\,dy = \frac{45}{8}\)。</p>
+<p>亦可用y-型区域计算：\(D = \{(y, x) \mid -1 \le y \le 2,\; y^{2} \le x \le y+2\}\)，则</p>
+<p>\(I = \int_{-1}^{2} dy \int_{y^{2}}^{y+2} xy\,dx = \frac{45}{8}\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>计算 \(I = \iint_{D} \sin(x+y)\,dx\,dy\)，\(D = [0, \pi] \times [0, \pi]\)。</p>
+<p>解：将 \([0, \pi] \times [0, \pi]\) 分为四个三角形区域（按 \(\sin(x+y)\) 的符号），得 \(I = -2\pi\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（交换积分次序）</h4>
+<p>计算 \(I = \int_{0}^{1} dy \int_{y}^{\sqrt{y}} \frac{\sin x}{x}\,dx\)。</p>
+<p>解：直接积分困难，交换次序得</p>
+<div class="formula">\(I = \iint_{D} \frac{\sin x}{x}\,dx\,dy = \int_{0}^{1} \frac{\sin x}{x}\,dx \int_{x^{2}}^{x} dy = \int_{0}^{1} \frac{\sin x}{x}(x - x^{2})\,dx = 1 - \sin 1\)</div>
+</div>
+<h3>2.3 对称性</h3>
+<div class="knowledge-item theorem">
+<h4>定理 2.4（关于y轴的对称性）</h4>
+<p>设 \(D\) 关于y轴对称（即 \((x, y) \in D \iff (-x, y) \in D\)）。</p>
+<p>若 \(f\) 关于 \(x\) 为奇函数（\(f(-x, y) = -f(x, y)\)），则 \(\iint_{D} f\,dx\,dy = 0\)；</p>
+<p>若 \(f\) 关于 \(x\) 为偶函数（\(f(-x, y) = f(x, y)\)），则 \(\iint_{D} f\,dx\,dy = 2\iint_{D_{+}} f\,dx\,dy\)，其中 \(D_{+} = D \cap \{x \ge 0\}\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.5（关于x轴的对称性）</h4>
+<p>设 \(D\) 关于x轴对称，结论类似。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>\(I = \iint_{x^{2}+y^{2} \le 1} (\sin x + \sin y)\,dx\,dy = 0\)（由对称性，\(\sin x\) 和 \(\sin y\) 均为奇函数）。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>\(I = \iint_{x^{2}+y^{2} \le 1} |xy|\,dx\,dy\)。由对称性，</p>
+<div class="formula">\(I = 4 \iint_{x\ge 0, y\ge 0, x^{2}+y^{2}\le 1} xy\,dx\,dy = 4 \int_{0}^{1} x\,dx \int_{0}^{\sqrt{1-x^{2}}} y\,dy = \frac{2}{3}\)</div>
+</div>
+<h3>2.4 极坐标变换</h3>
+<div class="knowledge-item theorem">
+<h4>定理 2.6（极坐标变换）</h4>
+<p>作极坐标变换</p>
+<div class="formula">\(\begin{cases} x = r\cos\theta, \\ y = r\sin\theta, \end{cases} \quad (r \ge 0,\; 0 \le \theta \le 2\pi)\)</div>
+<p>则 \(dx\,dy = r\,dr\,d\theta\)，且</p>
+<div class="formula">\(\iint_{D} f(x, y)\,dx\,dy = \iint_{D^{*}} f(r\cos\theta, r\sin\theta)\,r\,dr\,d\theta\)</div>
+<p>其中 \(D^{*} = \{(r, \theta) \mid (r\cos\theta, r\sin\theta) \in D\}\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（极坐标变换的应用）</h4>
+<p>(1) \(D = \{(x, y) \mid x^{2}+y^{2} \le ax,\; a &gt; 0\}\)：</p>
+<div class="formula">\(\iint_{D} f\,dx\,dy = \int_{-\pi/2}^{\pi/2} d\theta \int_{0}^{a\cos\theta} f(r\cos\theta, r\sin\theta)\,r\,dr\)</div>
+<p>(2) D由 \(y = x,\; y = 2x,\; x^{2}+y^{2} = 4x,\; x^{2}+y^{2} = 8x\) 围成：</p>
+<div class="formula">\(\iint_{D} f\,dx\,dy = \int_{\pi/4}^{\arctan 2} d\theta \int_{4\cos\theta}^{8\cos\theta} f(r\cos\theta, r\sin\theta)\,r\,dr\)</div>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

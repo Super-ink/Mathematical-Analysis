@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§5 曲面面积 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第八章 多元函数积分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch8.html">← 返回目录</a>
+<div class="content-section">
+<h2>§5 曲面面积</h2>
+<h3>5.1 参数化曲面的面积</h3>
+<div class="knowledge-item definition">
+<h4>定义（参数化曲面）</h4>
+<p>曲面 \(S \subset \mathbb{R}^{3}\) 可用参数方程表示为</p>
+<div class="formula">\(S:\quad \boldsymbol{r} = \boldsymbol{r}(u, v) = (x(u, v),\; y(u, v),\; z(u, v)),\quad (u, v) \in D\)</div>
+<p>其中 \(D \subset \mathbb{R}^{2}\) 为有界闭区域，\(x, y, z \in C^{1}(D)\)。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（切向量与法向量）</h4>
+<p>\(\boldsymbol{r}_{u}\) 和 \(\boldsymbol{r}_{v}\) 是曲面上 \(u\)-曲线和 \(v\)-曲线的切向量。曲面的法向量为</p>
+<div class="formula">\(\boldsymbol{n}(u, v) = \boldsymbol{r}_{u}(u, v) \times \boldsymbol{r}_{v}(u, v) = \left(\frac{\partial(y, z)}{\partial(u, v)},\; \frac{\partial(z, x)}{\partial(u, v)},\; \frac{\partial(x, y)}{\partial(u, v)}\right)\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 5.1（曲面面积公式——向量形式）</h4>
+<p>参数化曲面 \(S: \boldsymbol{r} = \boldsymbol{r}(u, v)\) 的面积为</p>
+<div class="formula">\(S = \iint_{D} |\boldsymbol{r}_{u} \times \boldsymbol{r}_{v}|\,du\,dv = \iint_{D} \sqrt{A^{2} + B^{2} + C^{2}}\,du\,dv\)</div>
+<p>其中 \((A, B, C) = \left(\frac{\partial(y, z)}{\partial(u, v)},\; \frac{\partial(z, x)}{\partial(u, v)},\; \frac{\partial(x, y)}{\partial(u, v)}\right)\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 5.2（曲面面积公式——第一基本形式）</h4>
+<p>曲面的<strong>第一基本量</strong>为</p>
+<div class="formula">\(E = \boldsymbol{r}_{u} \cdot \boldsymbol{r}_{u} = x_{u}^{2} + y_{u}^{2} + z_{u}^{2},\quad F = \boldsymbol{r}_{u} \cdot \boldsymbol{r}_{v} = x_{u}x_{v} + y_{u}y_{v} + z_{u}z_{v},\quad G = \boldsymbol{r}_{v} \cdot \boldsymbol{r}_{v} = x_{v}^{2} + y_{v}^{2} + z_{v}^{2}\)</div>
+<p>则曲面面积为</p>
+<div class="formula">\(S = \iint_{D} \sqrt{EG - F^{2}}\,du\,dv\)</div>
+<p>这是因为 \(|\boldsymbol{r}_{u} \times \boldsymbol{r}_{v}|^{2} = EG - F^{2}\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 5.3（显式曲面的面积公式）</h4>
+<p>若曲面可表示为 \(z = f(x, y)\)，\((x, y) \in D\)，且 \(f \in C^{1}(D)\)，则</p>
+<div class="formula">\(S = \iint_{D} \sqrt{1 + f_{x}^{2} + f_{y}^{2}}\,dx\,dy\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注（参数变换不变性）</h4>
+<p>曲面面积与参数化方式的选择无关。若作参数变换 \((s, t) \to (u, v)\)，则面积公式保持不变：</p>
+<div class="formula">\(|\boldsymbol{r}_{s} \times \boldsymbol{r}_{t}| = \left|\frac{\partial(u, v)}{\partial(s, t)}\right| \cdot |\boldsymbol{r}_{u} \times \boldsymbol{r}_{v}|\)</div>
+<div class="formula">\(\iint_{D} |\boldsymbol{r}_{u} \times \boldsymbol{r}_{v}|\,du\,dv = \iint_{D'} |\boldsymbol{r}_{s} \times \boldsymbol{r}_{t}|\,ds\,dt\)</div>
+</div>
+<h3>5.2 旋转曲面的面积</h3>
+<div class="knowledge-item note">
+<h4>旋转曲面面积</h4>
+<p>设 \(y = f(x)\)（\(x \in [a, b]\)，\(f(x) \ge 0\)）绕 \(x\) 轴旋转一周所得旋转曲面的面积为</p>
+<div class="formula">\(S = 2\pi \int_{a}^{b} f(x)\sqrt{1 + [f'(x)]^{2}}\,dx\)</div>
+<p>此公式可由参数曲面面积公式或显式曲面面积公式推导得到。</p>
+</div>
+<h3>5.3 例题</h3>
+<div class="knowledge-item note">
+<h4>例（球的表面积）</h4>
+<p>求球面 \(x^{2}+y^{2}+z^{2}=2Rz\) 与锥面 \(z^{2}=3(x^{2}+y^{2})\) 交线以上部分的面积。</p>
+<p>解：两曲面交线满足 \(z = R/2\)（代入可得）。用球坐标参数化球面：</p>
+<p>\(x = 2R\cos\varphi\sin\theta\cos\phi,\; y = 2R\cos\varphi\sin\theta\sin\phi,\; z = 2R\cos^{2}\varphi\)，</p>
+<p>计算得 \(\sqrt{EG-F^{2}} = 2R^{2}|\sin 2\varphi|\)，面积 \(S = \int_{0}^{2\pi} d\phi \int_{0}^{\pi/6} 2R^{2}\sin 2\varphi\,d\varphi = 2\pi R^{2}(1-\frac{\sqrt{3}}{2})\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（旋转曲面面积）</h4>
+<p>曲线 \(y = f(x)\)（\(f \in C^{1}[a,b]\)，\(f(x) \ge 0\)）绕 \(x\) 轴旋转所得曲面的面积公式为</p>
+<div class="formula">\(S = 2\pi \int_{a}^{b} f(x)\sqrt{1+[f'(x)]^{2}}\,dx\)</div>
+<p>其推导基于参数曲面面积公式：将旋转曲面参数化为 \(x = x,\; y = f(x)\cos\theta,\; z = f(x)\sin\theta\)，</p>
+<p>计算 \(|\boldsymbol{r}_{x} \times \boldsymbol{r}_{\theta}| = f(x)\sqrt{1+[f'(x)]^{2}}\)，代入面积公式即得。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（组合曲面面积）</h4>
+<p>求曲面 \(x^{2}+y^{2}=az\) 与 \(z=2a-\sqrt{x^{2}+y^{2}}\)（\(a&gt;0\)）所围立体的表面积。</p>
+<p>解：两曲面交线在 \(xOy\) 上的投影为 \(x^{2}+y^{2}=a^{2}\)。上部分锥面 \(z=2a-r\)，下部分抛物面 \(z=r^{2}/a\)。</p>
+<p>锥面部分：\(\sqrt{1+z_{x}^{2}+z_{y}^{2}} = \sqrt{2}\)；抛物面部分：\(\sqrt{1+z_{x}^{2}+z_{y}^{2}} = \frac{1}{a}\sqrt{a^{2}+4r^{2}}\)。</p>
+<div class="formula">\(S = \iint_{r\le a} \sqrt{2}\,dx\,dy + \iint_{r\le a} \frac{1}{a}\sqrt{a^{2}+4r^{2}}\,dx\,dy = \frac{\pi a^{2}}{6}\left(6\sqrt{2} + 5\sqrt{5} - 1\right)\)</div>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

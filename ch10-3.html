@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§3 任意项级数 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第十章 无穷级数</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch10.html">← 返回目录</a>
+<div class="content-section">
+<h2>§3 任意项级数</h2>
+<h3>3.1 交错级数</h3>
+<div class="knowledge-item definition">
+<h4>定义（交错级数）</h4>
+<p>级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\)（\(a_{n} &gt; 0\)）称为<strong>交错级数</strong>。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（Leibniz级数）</h4>
+<p>若交错级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 满足：</p>
+<p>(1) \(a_{n+1} \le a_{n}\)（\(n = 1, 2, \ldots\)）</p>
+<p>(2) \(\lim\limits_{n\to+\infty} a_{n} = 0\)</p>
+<p>则称此级数为<strong>Leibniz级数</strong>。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.1（Leibniz判别法）</h4>
+<p>Leibniz级数必收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 1</h4>
+<p>Leibniz级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 的余和 \(r_{n} = \sum\limits_{k=n+1}^{+\infty} (-1)^{k+1} a_{k}\) 的符号与首项 \((-1)^{n+2} a_{n+1}\) 的符号相同，且有 \(|r_{n}| \le a_{n+1}\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 2</h4>
+<p>若交错级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 中 \(\{a_{n}\}\) 不满足单调递减，则定理不成立。</p>
+</div>
+<h3>3.2 绝对收敛与条件收敛</h3>
+<div class="knowledge-item definition">
+<h4>定义（绝对收敛与条件收敛）</h4>
+<p>若 \(\sum\limits_{n=1}^{+\infty} |a_{n}|\) 收敛，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) <strong>绝对收敛</strong>。</p>
+<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛，但 \(\sum\limits_{n=1}^{+\infty} |a_{n}|\) 发散，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) <strong>条件收敛</strong>。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 绝对收敛，则 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛。故收敛级数分为绝对收敛和条件收敛两类。</p>
+</div>
+<h3>3.3 Abel判别法与Dirichlet判别法</h3>
+<div class="knowledge-item lemma">
+<h4>引理 3.1（Abel变换/分部求和公式）</h4>
+<p>设 \(\{a_{n}\}, \{b_{n}\}\) 是两个数列，记 \(B_{n} = \sum\limits_{i=1}^{n} b_{i}\)（\(n = 1, 2, \ldots\)），则</p>
+<div class="formula">\(\sum\limits_{i=1}^{n} a_{i}b_{i} = a_{n}B_{n} - \sum\limits_{i=1}^{n-1} (a_{i+1} - a_{i})B_{i}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>Abel变换是离散形式的分部积分公式，故亦称为分部求和公式。</p>
+</div>
+<div class="knowledge-item lemma">
+<h4>引理 3.2（Abel引理）</h4>
+<p>设</p>
+<p>(1) \(\{a_{n}\}\) 为单调数列，</p>
+<p>(2) \(\{B_{n}\}\) 为有界数列，即存在 \(M &gt; 0\)，使得 \(\forall n \in \mathbb{N}, |B_{n}| \le M\)。</p>
+<p>则</p>
+<div class="formula">\(\bigl|\sum\limits_{i=1}^{n} a_{i}b_{i}\bigr| \le M(|a_{1}| + 2|a_{n}|)\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.2（Dirichlet判别法）</h4>
+<p>若 \(\{a_{n}\}\) 单调且 \(\lim\limits_{n\to+\infty} a_{n} = 0\)，\(\{\sum\limits_{i=1}^{n} b_{i}\}\) 有界，则 \(\sum\limits_{n=1}^{+\infty} a_{n}b_{n}\) 收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>Leibniz判别法是Dirichlet判别法的特例。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（Dirichlet判别法的应用）</h4>
+<p>设 \(\{a_{n}\}\) 单调趋于 0，则级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\sin nx\) 和 \(\sum\limits_{n=1}^{+\infty} a_{n}\cos nx\) 当 \(x \neq 2k\pi\) 时收敛。</p>
+<p>这是因为 \(\sum\limits_{k=1}^{n} \sin kx = \frac{\cos\frac{x}{2} - \cos(n+\frac{1}{2})x}{2\sin\frac{x}{2}}\) 有界，由Dirichlet判别法即得。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.3（Abel判别法）</h4>
+<p>若 \(\{a_{n}\}\) 单调有界，\(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，则 \(\sum\limits_{n=1}^{+\infty} a_{n}b_{n}\) 收敛。</p>
+</div>
+<h3>3.4 绝对收敛级数与条件收敛级数的性质</h3>
+<div class="knowledge-item proposition">
+<h4>命题 3.1</h4>
+<p>设 \(a_{n}^{+} = \frac{|a_{n}| + a_{n}}{2}\)，\(a_{n}^{-} = \frac{|a_{n}| - a_{n}}{2}\)。</p>
+<p>(1) \(\sum\limits_{n=1}^{+\infty} a_{n}\) 绝对收敛的充要条件是：\(\sum\limits_{n=1}^{+\infty} a_{n}^{+}\) 和 \(\sum\limits_{n=1}^{+\infty} a_{n}^{-}\) 同时收敛；</p>
+<p>(2) 若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 条件收敛，则 \(\sum\limits_{n=1}^{+\infty} a_{n}^{+}\) 和 \(\sum\limits_{n=1}^{+\infty} a_{n}^{-}\) 同时发散。但反之不真。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（重排级数/更序级数）</h4>
+<p>给定级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\)，设 \(\gamma: \mathbb{N} \to \mathbb{N}\) 是双射。则 \(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)}\) 称为 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 的一个<strong>重排级数</strong>（或<strong>更序级数</strong>）。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.4</h4>
+<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 绝对收敛，则它的任何一个重排级数也绝对收敛，且</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)} = \sum\limits_{n=1}^{+\infty} a_{n}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>上述定理说明对绝对收敛的无穷级数，加法交换律成立。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.5（Riemann重排定理）</h4>
+<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 条件收敛，则 \(\forall a \in [-\infty, +\infty]\)，都存在 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 的一个重排 \(\gamma\) 满足</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)} = a\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>在上述定理中，当 \(a = \pm\infty\) 时，\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)}\) 发散。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（Riemann重排）</h4>
+<p>考虑条件收敛的交错调和级数 \(\sum\limits_{n=1}^{+\infty} \frac{(-1)^{n+1}}{n} = \ln 2\)。将其重排为</p>
+<div class="formula">\(1 - \frac{1}{2} - \frac{1}{4} + \frac{1}{3} - \frac{1}{6} - \frac{1}{8} + \frac{1}{5} - \frac{1}{10} - \frac{1}{12} + \cdots\)</div>
+<p>即每个正项后跟两个负项，则新级数的和为 \(\frac{1}{2}\ln 2\)。</p>
+</div>
+<h3>3.5 级数的乘法</h3>
+<div class="knowledge-item proposition">
+<h4>命题 3.2</h4>
+<p>给定收敛级数 \(\sum\limits_{n=1}^{+\infty} a_{n}, \sum\limits_{n=1}^{+\infty} b_{n}\)，令</p>
+<div class="formula">\(d_{n} = a_{1}b_{n} + a_{2}b_{n} + \cdots + a_{n}b_{n} + a_{n}b_{n-1} + \cdots + a_{n}b_{1}\)</div>
+<p>则 \(\sum\limits_{n=1}^{+\infty} d_{n}\) 收敛，且</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} d_{n} = \bigl(\sum\limits_{n=1}^{+\infty} a_{n}\bigr)\bigl(\sum\limits_{n=1}^{+\infty} b_{n}\bigr)\)</div>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（Cauchy乘积）</h4>
+<p>称级数 \(\sum\limits_{n=1}^{+\infty} c_{n}\) 为级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 和 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 的<strong>Cauchy乘积</strong>，其中</p>
+<div class="formula">\(c_{n} = \sum\limits_{i+j=n+1} a_{i}b_{j} = a_{1}b_{n} + a_{2}b_{n-1} + \cdots + a_{n}b_{1}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>级数 \(\sum\limits_{n=1}^{+\infty} a_{n}, \sum\limits_{n=1}^{+\infty} b_{n}\) 的收敛性不能保证其Cauchy乘积的收敛性。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.6</h4>
+<p>若级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 与 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 都绝对收敛，则由 \(\{a_{i}b_{j}\}\) 构成的级数以任意方式排列求和都绝对收敛，且其和为 \((\sum\limits_{n=1}^{+\infty} a_{n})(\sum\limits_{n=1}^{+\infty} b_{n})\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 1</h4>
+<p>上述定理说明绝对收敛的级数满足乘法的分配律。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注 2</h4>
+<p>上述定理说明两个绝对收敛的级数的Cauchy乘积绝对收敛。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.7（Mertens定理）</h4>
+<p>若级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 绝对收敛，\(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，则它们的Cauchy乘积 \(\sum\limits_{n=1}^{+\infty} c_{n}\) 也收敛，且满足</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} c_{n} = \bigl(\sum\limits_{n=1}^{+\infty} a_{n}\bigr)\bigl(\sum\limits_{n=1}^{+\infty} b_{n}\bigr)\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 3.8（Abel定理）</h4>
+<p>若级数 \(\sum\limits_{n=1}^{+\infty} a_{n}, \sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，且它们的Cauchy乘积 \(\sum\limits_{n=1}^{+\infty} c_{n}\) 也收敛，则</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} c_{n} = \bigl(\sum\limits_{n=1}^{+\infty} a_{n}\bigr)\bigl(\sum\limits_{n=1}^{+\infty} b_{n}\bigr)\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>定理3.7和3.8的证明参见菲赫金哥尔茨《微积分学教程》第二卷。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

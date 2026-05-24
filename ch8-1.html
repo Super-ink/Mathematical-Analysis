@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§1 二重积分 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第八章 多元函数积分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch8.html">← 返回目录</a>
+<div class="content-section">
+<h2>§1 二重积分</h2>
+<div class="knowledge-item definition">
+<h4>定义（二重积分）</h4>
+<p>设 \(f(x, y)\) 定义在矩形 \(K = [a, b] \times [c, d]\) 上。对 \(K\) 作分割 \(T\)：</p>
+<div class="formula">\(a = x_{0} &lt; x_{1} &lt; \cdots &lt; x_{m} = b,\quad c = y_{0} &lt; y_{1} &lt; \cdots &lt; y_{n} = d\)</div>
+<p>将 \(K\) 分成 \(m \times n\) 个小矩形 \(K_{jk} = [x_{j-1}, x_j] \times [y_{k-1}, y_k]\)，面积 \(\Delta\sigma_{jk} = \Delta x_j \Delta y_k\)。记 \(\|T\| = \max\{\Delta x_j, \Delta y_k\}\)。任取 \((\xi_{jk}, \eta_{jk}) \in K_{jk}\)，作Riemann和</p>
+<div class="formula">\(\sum\limits_{j=1}^{m}\sum\limits_{k=1}^{n} f(\xi_{jk}, \eta_{jk}) \Delta\sigma_{jk}\)</div>
+<p>若当 \(\|T\| \to 0\) 时，该和式极限存在且与分割和取点无关，则称 \(f\) 在 \(K\) 上<strong>Riemann可积</strong>，极限值 \(I\) 称为 \(f\) 在 \(K\) 上的<strong>二重积分</strong>，记为</p>
+<div class="formula">\(I = \iint_{K} f(x, y)\,d\sigma = \iint_{K} f(x, y)\,dx\,dy\)</div>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（Jordan测度）</h4>
+<p>设 \(E \subset \mathbb{R}^{2}\) 为有界集，\(K\) 为包含 \(E\) 的矩形。对 \(K\) 作分割 \(T\)，记</p>
+<div class="formula">\(m_{*}(E) = \sup_{T} \underline{*}(T),\quad m^{*}(E) = \inf_{T} \overline{*}(T)\)</div>
+<p>分别为 \(E\) 的<strong>Jordan内测度</strong>和<strong>Jordan外测度</strong>，其中 \(\underline{*}(T)\) 和 \(\overline{*}(T)\) 分别为被 \(E\) 完全包含和覆盖 \(E\) 的小矩形面积之和。若 \(m_{*}(E) = m^{*}(E)\)，则称 \(E\) <strong>Jordan可测</strong>，其<strong>Jordan测度</strong>为 \(m(E) = m_{*}(E) = m^{*}(E)\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.1（测度的基本性质）</h4>
+<p>(1) 对任意分割 \(T\)，有 \(\underline{*}(T) \le \overline{*}(T)\)；</p>
+<p>(2) 加细分割时，\(\underline{*}(T)\) 不减小，\(\overline{*}(T)\) 不增大；</p>
+<p>(3) 对任意两个分割 \(T_1, T_2\)，有 \(\underline{*}(T_1) \le \overline{*}(T_2)\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.2（Jordan可测的充要条件）</h4>
+<p>\(E \subset \mathbb{R}^{2}\) 有界，则 \(m_{*}(E) \le m^{*}(E)\)。\(E\) Jordan可测当且仅当 \(m^{*}(\partial E) = 0\)（即边界为零测集）。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>\(E = \{(x, y) \mid 0 \le x \le 1, 0 \le y \le 1, x \in \mathbb{Q}\}\) 不是Jordan可测的，因为 \(m_{*}(E) = 0\)，\(m^{*}(E) = 1\)。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（一般区域上的二重积分）</h4>
+<p>设 \(D \subset \mathbb{R}^{2}\) 为有界Jordan可测区域，\(K\) 为包含 \(D\) 的矩形。定义\(f\) 的零延拓</p>
+<div class="formula">\(f^{*}(x, y) = \begin{cases} f(x, y), &amp; (x, y) \in D, \\ 0, &amp; (x, y) \in K \setminus D \end{cases}\)</div>
+<p>若 \(f^{*}\) 在 \(K\) 上可积，则称 \(f\) 在 \(D\) 上可积，且</p>
+<div class="formula">\(\iint_{D} f(x, y)\,d\sigma = \iint_{K} f^{*}(x, y)\,d\sigma\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注（面积的积分表示）</h4>
+<p>若在 \(D\) 上取 \(f(x, y) = 1\)，则 \(\iint_{D} 1\,d\sigma = m(D)\)，即区域 \(D\) 的面积。</p>
+</div>
+<h3>Riemann可积条件</h3>
+<div class="knowledge-item definition">
+<h4>定义（Darboux大和与小和）</h4>
+<p>设 \(f\) 在 \(D\) 上有界，\(T: D_1, \ldots, D_n\) 为 \(D\) 的分割。记</p>
+<div class="formula">\(M_i = \sup_{(x,y)\in D_i} f(x, y),\quad m_i = \inf_{(x,y)\in D_i} f(x, y)\)</div>
+<p>则称 \(\overline{S}(T) = \sum\limits_{i=1}^{n} M_i \Delta\sigma_i\) 和 \(\underline{S}(T) = \sum\limits_{i=1}^{n} m_i \Delta\sigma_i\) 分别为 <strong>Darboux大和</strong>和<strong>Darboux小和</strong>。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.3（Darboux上下积分）</h4>
+<p>\(\overline{I} = \inf_{T} \overline{S}(T)\)，\(\underline{I} = \sup_{T} \underline{S}(T)\) 分别称为上积分和下积分。总有 \(\underline{S}(T) \le \underline{I} \le \overline{I} \le \overline{S}(T)\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.4</h4>
+<p>\(\lim_{\|T\|\to 0} \overline{S}(T) = \overline{I}\)，\(\lim_{\|T\|\to 0} \underline{S}(T) = \underline{I}\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.5（Riemann可积的充要条件）</h4>
+<p>\(f\) 在 \(D\) 上Riemann可积当且仅当 \(\overline{I} = \underline{I}\)。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.6（振幅和判别法）</h4>
+<p>\(f\) 在 \(D\) 上可积当且仅当对任意分割 \(T\)，有</p>
+<div class="formula">\(\lim_{\|T\|\to 0} \sum_{i=1}^{n} \omega_i \Delta\sigma_i = 0\)</div>
+<p>其中 \(\omega_i = M_i - m_i\) 为 \(f\) 在 \(D_i\) 上的振幅。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.7</h4>
+<p>若 \(f\) 在 \(D\) 上连续，则 \(f\) 在 \(D\) 上可积。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.8</h4>
+<p>\(f\) 在 \(D\) 上可积当且仅当 \(\forall \varepsilon &gt; 0\)，存在 \(D\) 的分割 \(T\)，使得</p>
+<div class="formula">\(\sum_{i} \omega_i \Delta\sigma_i &lt; \varepsilon\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.9</h4>
+<p>\(f\) 在 \(D\) 上可积当且仅当 \(\forall \varepsilon &gt; 0\)，存在 \(D\) 的分割 \(T\)，使得振幅 \(\omega_i \ge \varepsilon\) 的那些小区域面积之和可以任意小。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.10（Lebesgue定理）</h4>
+<p>\(f\) 在 \(D\) 上Riemann可积的充要条件是 \(f\) 在 \(D\) 上几乎处处连续（即不连续点集的Lebesgue测度为0）。</p>
+</div>
+<h3>二重积分的基本性质</h3>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>设 \(f, g\) 在 \(D\) 上可积，则</p>
+<p>(1) <strong>线性性</strong>：\(\alpha f + \beta g\) 可积，且 \(\iint_D (\alpha f + \beta g)\,d\sigma = \alpha\iint_D f\,d\sigma + \beta\iint_D g\,d\sigma\)。</p>
+<p>(2) <strong>区域可加性</strong>：若 \(D = D_1 \cup D_2\)，\(D_1, D_2\) 内部不相交，则 \(\iint_D f\,d\sigma = \iint_{D_1} f\,d\sigma + \iint_{D_2} f\,d\sigma\)。</p>
+<p>(3) <strong>保序性</strong>：若 \(f(x,y) \le g(x,y)\)，则 \(\iint_D f\,d\sigma \le \iint_D g\,d\sigma\)。</p>
+<p>(4) <strong>绝对值可积</strong>：\(|f|\) 可积，且 \(\bigl|\iint_D f\,d\sigma\bigr| \le \iint_D |f|\,d\sigma\)。</p>
+<p>(5) 若 \(f, g\) 可积，则 \(f \cdot g\) 可积。</p>
+<p>(6) <strong>积分第一中值定理</strong>：若 \(m \le f \le M\)，\(g\) 不变号，则存在 \(\mu \in [m, M]\) 使得</p>
+<div class="formula">\(\iint_D f g\,d\sigma = \mu \iint_D g\,d\sigma\)</div>
+<p>特别地，当 \(g \equiv 1\) 时，存在 \((\xi, \eta) \in D\) 使得 \(\iint_D f\,d\sigma = f(\xi, \eta) \cdot m(D)\)。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

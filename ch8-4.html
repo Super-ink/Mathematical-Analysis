@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§4 三重积分 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第八章 多元函数积分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch8.html">← 返回目录</a>
+<div class="content-section">
+<h2>§4 三重积分</h2>
+<h3>4.1 三重积分的概念与性质</h3>
+<div class="knowledge-item definition">
+<h4>定义（三重积分）</h4>
+<p>三重积分是二重积分在三维空间中的直接推广。对 \(\Omega \subset \mathbb{R}^{3}\) 上的函数 \(f(x, y, z)\)，通过分割、求和、取极限的方式定义：</p>
+<div class="formula">\(\iiint_{\Omega} f(x, y, z)\,dx\,dy\,dz\)</div>
+<p>其性质（线性性、区域可加性、保序性、中值定理等）与二重积分类似。</p>
+</div>
+<h3>4.2 三重积分的计算</h3>
+<div class="knowledge-item theorem">
+<h4>定理 4.1（投影法/先一后二）</h4>
+<p>设 \(\Omega\) 在 \(xOy\) 平面上的投影为有界闭区域 \(D\)，且 \(\Omega\) 可表示为</p>
+<div class="formula">\(\Omega = \{(x, y, z) \mid (x, y) \in D,\; z_{1}(x, y) \le z \le z_{2}(x, y)\}\)</div>
+<p>则</p>
+<div class="formula">\(\iiint_{\Omega} f(x, y, z)\,dx\,dy\,dz = \iint_{D} \left[\int_{z_{1}(x, y)}^{z_{2}(x, y)} f(x, y, z)\,dz\right] dx\,dy\)</div>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 4.2（截面法/先二后一）</h4>
+<p>设 \(\Omega\) 在 \(z\) 轴上的投影区间为 \([c, d]\)，对每个 \(z \in [c, d]\)，用垂直于 \(z\) 轴的平面截 \(\Omega\) 得截面 \(D_{z}\)，则</p>
+<div class="formula">\(\iiint_{\Omega} f(x, y, z)\,dx\,dy\,dz = \int_{c}^{d} \left[\iint_{D_{z}} f(x, y, z)\,dx\,dy\right] dz\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>计算 \(I = \iiint_{\Omega} y(x+z)\,dx\,dy\,dz\)，\(\Omega\) 由 \(y=0, z=0, x+z=\pi/2, y=x\) 围成。</p>
+<p>解：\(\Omega\) 在 \(xOy\) 上的投影 \(D: y=0, y=x, x=\pi/2\)。</p>
+<div class="formula">\(I = \iint_{D} dx\,dy \int_{0}^{\pi/2-x} y(x+z)\,dz = \frac{\pi^{4}}{256}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（截面法）</h4>
+<p>计算 \(I = \iiint_{\Omega} z^{2}\,dx\,dy\,dz\)，\(\Omega\) 为锥面 \(z^{2}=x^{2}+y^{2}\) 与平面 \(z=1\) 围成的区域。</p>
+<p>解：用截面法，对每个 \(z \in [0,1]\)，截面 \(D_{z}: x^{2}+y^{2} \le z^{2}\)，面积为 \(\pi z^{2}\)。</p>
+<div class="formula">\(I = \int_{0}^{1} z^{2} \left(\iint_{D_{z}} dx\,dy\right) dz = \int_{0}^{1} z^{2} \cdot \pi z^{2}\,dz = \frac{\pi}{5}\)</div>
+</div>
+<h3>4.3 三重积分的对称性</h3>
+<div class="knowledge-item note">
+<h4>对称性</h4>
+<p>若 \(\Omega\) 关于 \(xOy\) 平面对称，且 \(f\) 关于 \(z\) 为奇函数（\(f(x,y,-z) = -f(x,y,z)\)），则 \(\iiint_{\Omega} f = 0\)；若 \(f\) 关于 \(z\) 为偶函数，则积分等于上半区域积分值的2倍。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例</h4>
+<p>计算 \(I = \iiint_{\Omega} (x+y+z)^{2}\,dx\,dy\,dz\)，\(\Omega: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}} \le 1\)。</p>
+<p>解：展开得 \((x+y+z)^{2} = x^{2}+y^{2}+z^{2}+2xy+2yz+2zx\)。由对称性，交叉项积分为0。故</p>
+<div class="formula">\(I = \iiint_{\Omega} (x^{2}+y^{2}+z^{2})\,dx\,dy\,dz\)</div>
+<p>由对称性，\(\iiint x^{2} = \iiint y^{2} = \iiint z^{2} = \frac{1}{3}\iiint (x^{2}+y^{2}+z^{2})\)。利用广义球坐标计算得</p>
+<div class="formula">\(I = \frac{4\pi}{15}abc(a^{2}+b^{2}+c^{2})\)</div>
+</div>
+<h3>4.4 柱坐标与球坐标</h3>
+<div class="knowledge-item note">
+<h4>柱坐标变换</h4>
+<div class="formula">\(\begin{cases} x = r\cos\theta, \\ y = r\sin\theta, \\ z = z, \end{cases} \quad \frac{\partial(x, y, z)}{\partial(r, \theta, z)} = r\)</div>
+<div class="formula">\(\iiint_{\Omega} f(x, y, z)\,dx\,dy\,dz = \iiint_{\Omega^{*}} f(r\cos\theta, r\sin\theta, z)\,r\,dr\,d\theta\,dz\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>球坐标变换</h4>
+<div class="formula">\(\begin{cases} x = \rho\sin\varphi\cos\theta, \\ y = \rho\sin\varphi\sin\theta, \\ z = \rho\cos\varphi, \end{cases} \quad \frac{\partial(x, y, z)}{\partial(\rho, \varphi, \theta)} = \rho^{2}\sin\varphi\)</div>
+<div class="formula">\(\iiint_{\Omega} f(x, y, z)\,dx\,dy\,dz = \iiint_{\Omega^{*}} f(\rho\sin\varphi\cos\theta, \rho\sin\varphi\sin\theta, \rho\cos\varphi)\,\rho^{2}\sin\varphi\,d\rho\,d\varphi\,d\theta\)</div>
+<p>其中 \(\rho \ge 0,\; 0 \le \varphi \le \pi,\; 0 \le \theta \le 2\pi\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>广义球坐标</h4>
+<p>对椭球区域，作广义球坐标变换：</p>
+<div class="formula">\(\begin{cases} x = a\rho\sin\varphi\cos\theta, \\ y = b\rho\sin\varphi\sin\theta, \\ z = c\rho\cos\varphi, \end{cases} \quad \frac{\partial(x, y, z)}{\partial(\rho, \varphi, \theta)} = abc\,\rho^{2}\sin\varphi\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（柱坐标）</h4>
+<p>\(I = \iiint_{\Omega} (x^{2}+y^{2})\,dx\,dy\,dz\)，\(\Omega: x^{2}+y^{2} \le z \le 1\)。</p>
+<p>解：用柱坐标，\(\Omega^{*}: 0 \le r \le 1,\; 0 \le \theta \le 2\pi,\; r^{2} \le z \le 1\)。</p>
+<div class="formula">\(I = \int_{0}^{2\pi} d\theta \int_{0}^{1} r^{3}\,dr \int_{r^{2}}^{1} dz = \frac{\pi}{6}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（球坐标）</h4>
+<p>计算 \(I = \iiint_{\Omega} ze^{-(x^{2}+y^{2}+z^{2})}\,dx\,dy\,dz\)，\(\Omega\) 为锥面 \(z=\sqrt{x^{2}+y^{2}}\) 与球面 \(x^{2}+y^{2}+z^{2}=1\) 围成的区域。</p>
+<p>解：用球坐标，\(\Omega\) 对应于 \(0 \le \rho \le 1,\; 0 \le \varphi \le \pi/4,\; 0 \le \theta \le 2\pi\)。</p>
+<div class="formula">\(I = \int_{0}^{2\pi} d\theta \int_{0}^{\pi/4} \cos\varphi\sin\varphi\,d\varphi \int_{0}^{1} \rho^{3}e^{-\rho^{2}}\,d\rho = \frac{\pi}{2}\left(\frac{1}{2} - \frac{1}{e}\right)\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（椭球体积）</h4>
+<p>椭球 \(\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}} \le 1\) 的体积：</p>
+<p>方法一（广义球坐标）：</p>
+<div class="formula">\(V = \iiint_{\Omega} dx\,dy\,dz = abc \int_{0}^{2\pi} d\theta \int_{0}^{\pi} \sin\varphi\,d\varphi \int_{0}^{1} \rho^{2}\,d\rho = \frac{4\pi}{3}abc\)</div>
+<p>方法二（截面法）：</p>
+<div class="formula">\(V = \int_{-c}^{c} \pi ab\left(1-\frac{z^{2}}{c^{2}}\right) dz = \frac{4\pi}{3}abc\)</div>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

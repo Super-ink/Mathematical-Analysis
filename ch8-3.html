@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§3 变量替换 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第八章 多元函数积分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch8.html">← 返回目录</a>
+<div class="content-section">
+<h2>§3 变量替换</h2>
+<div class="knowledge-item theorem">
+<h4>定理 3.1（二重积分的变量替换公式）</h4>
+<p>设 \(D \subset \mathbb{R}^{2}\) 为开集，\(F: D \to \mathbb{R}^{2}\) 为 \(C^{1}\) 映射：</p>
+<div class="formula">\((x, y) = F(u, v) = (x(u, v),\; y(u, v))\)</div>
+<p>且 \(F\) 是单射，Jacobi行列式 \(\frac{\partial(x, y)}{\partial(u, v)} \neq 0\)。则对任意可积函数 \(f\)，有</p>
+<div class="formula">\(\iint_{F(D)} f(x, y)\,dx\,dy = \iint_{D} f\bigl(x(u, v), y(u, v)\bigr) \left|\frac{\partial(x, y)}{\partial(u, v)}\right| du\,dv\)</div>
+<p>其中Jacobi行列式为</p>
+<div class="formula">\(\frac{\partial(x, y)}{\partial(u, v)} = \begin{vmatrix} x_{u} &amp; x_{v} \\ y_{u} &amp; y_{v} \end{vmatrix}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注（面积变换公式）</h4>
+<p>区域 \(D\) 经映射 \(F\) 后的面积为</p>
+<div class="formula">\(m(F(D)) = \iint_{D} \left|\frac{\partial(x, y)}{\partial(u, v)}\right| du\,dv\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（极坐标）</h4>
+<p>极坐标变换 \(x = r\cos\theta,\; y = r\sin\theta\) 的Jacobi行列式为</p>
+<div class="formula">\(\frac{\partial(x, y)}{\partial(r, \theta)} = \begin{vmatrix} \cos\theta &amp; -r\sin\theta \\ \sin\theta &amp; r\cos\theta \end{vmatrix} = r\)</div>
+<p>故 \(dx\,dy = r\,dr\,d\theta\)，这与§2中的结果一致。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（一般线性变换）</h4>
+<p>线性变换 \(x = au + bv,\; y = cu + dv\) 的Jacobi行列式为常数 \(ad - bc\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（利用变量替换计算面积）</h4>
+<p>设 \(D\) 由曲线族 \(xy = p,\; xy = q\) 和 \(y = ax,\; y = bx\) 围成（\(0 &lt; p &lt; q,\; 0 &lt; a &lt; b\)）。作变换</p>
+<div class="formula">\(u = xy,\quad v = \frac{y}{x}\)</div>
+<p>则 \(D\) 变为矩形 \(E = [p, q] \times [a, b]\)。</p>
+<div class="formula">\(\frac{\partial(x, y)}{\partial(u, v)} = \frac{1}{\frac{\partial(u, v)}{\partial(x, y)}} = \frac{1}{2v} &gt; 0\)</div>
+<div class="formula">\(m(D) = \iint_{E} \frac{1}{2v}\,du\,dv = \frac{1}{2}(q-p)\ln\frac{b}{a}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（广义极坐标）</h4>
+<p>对椭圆区域可作广义极坐标变换：</p>
+<div class="formula">\(\begin{cases} x = ar\cos\theta, \\ y = br\sin\theta, \end{cases} \quad \frac{\partial(x, y)}{\partial(r, \theta)} = abr\)</div>
+<p>计算 \(I = \iint_{x^{2}/a^{2}+y^{2}/b^{2} \le 1} e^{x^{2}/a^{2}+y^{2}/b^{2}}\,dx\,dy\)：</p>
+<div class="formula">\(I = \int_{0}^{2\pi} d\theta \int_{0}^{1} e^{r^{2}} abr\,dr = \pi ab(e-1)\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（非常规变换）</h4>
+<p>计算 \(I = \iint_{D} \sqrt{x+y}\,dx\,dy\)，\(D: x=0, y=0, x+y=1\) 围成的三角形区域。</p>
+<p>方法一：作变换 \(x = r\cos^{4}\theta,\; y = r\sin^{4}\theta\)，则 \(\frac{\partial(x, y)}{\partial(r, \theta)} = 4r\sin^{3}\theta\cos^{3}\theta\)，</p>
+<div class="formula">\(I = \int_{0}^{1} r^{3/2}\,dr \int_{0}^{\pi/2} 4\sin^{3}\theta\cos^{3}\theta\,d\theta = \frac{2}{15}\)</div>
+<p>方法二：直接用累次积分 \(I = 2\int_{0}^{1} x\,dx \int_{0}^{1-x} \sqrt{x+y}\,dy = \frac{2}{15}\)。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

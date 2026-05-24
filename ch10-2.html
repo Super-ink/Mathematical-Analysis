@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§2 正项级数 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第十章 无穷级数</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch10.html">← 返回目录</a>
+<div class="content-section">
+<h2>§2 正项级数</h2>
+<div class="knowledge-item definition">
+<h4>定义（正项级数）</h4>
+<p>通项 \(a_{n} \ge 0\) 的级数 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 称为<strong>正项级数</strong>。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.1（正项级数收敛的充要条件）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 是正项级数，则 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛的充要条件是其部分和序列有上界。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.2（比较判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 和 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 是正项级数，且 \(\exists N_{0} \in \mathbb{N}, \forall n \ge N_{0}, a_{n} \le c b_{n}\)（\(c &gt; 0\)），则</p>
+<p>(1) 如果 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，那么 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 如果 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散，那么 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 发散。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.3（比较判别法的极限形式）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 和 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 是正项级数，且 \(b_{n} \neq 0\)，又设</p>
+<div class="formula">\(\lim\limits_{n\to+\infty} \frac{a_{n}}{b_{n}} = l\)</div>
+<p>则</p>
+<p>(1) 当 \(0 &lt; l &lt; +\infty\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 与 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 同时收敛或同时发散；</p>
+<p>(2) 当 \(l = 0\) 时，如果 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，那么 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(3) 当 \(l = +\infty\) 时，如果 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 发散，那么 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（p-级数）</h4>
+<p>级数 \(\sum\limits_{n=1}^{+\infty} \frac{1}{n^{p}}\) 称为<strong>p-级数</strong>。它是正项级数敛散性的重要标尺：当 \(p &gt; 1\) 时收敛，当 \(p \le 1\) 时发散。</p>
+<p>特别地，\(p=1\) 即为调和级数 \(\sum\limits_{n=1}^{+\infty} \frac{1}{n}\)，发散。证明可用Cauchy积分判别法（定理2.8），取 \(f(x)=1/x^{p}\) 即可。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.4（Cauchy判别法/根值判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 为正项级数，且</p>
+<div class="formula">\(\lim\limits_{n\to+\infty} \sqrt[n]{a_{n}} = r\)</div>
+<p>则</p>
+<p>(1) 当 \(r &lt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 当 \(r &gt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散；</p>
+<p>(3) 当 \(r = 1\) 时，判别法失效。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.5（d'Alembert判别法/比值判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 为正项级数，且满足 \(a_{n} &gt; 0\)，又设</p>
+<div class="formula">\(r = \lim\limits_{n\to+\infty} \frac{a_{n+1}}{a_{n}}\)</div>
+<p>则</p>
+<p>(1) 当 \(r &lt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 当 \(r &gt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散；</p>
+<p>(3) 当 \(r = 1\) 时，判别法失效。</p>
+</div>
+<div class="knowledge-item corollary">
+<h4>推论（d'Alembert判别法的上极限形式）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 为正项级数，且满足 \(a_{n} &gt; 0\)，又设</p>
+<div class="formula">\(\bar{r} = \varlimsup_{n\to+\infty} \frac{a_{n+1}}{a_{n}}\)</div>
+<p>则</p>
+<p>(1) 当 \(\bar{r} &lt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 当 \(\underline{r} &gt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散；</p>
+<p>(3) 当 \(\underline{r} \le 1 \le \bar{r}\) 时，判别法失效。</p>
+</div>
+<div class="knowledge-item lemma">
+<h4>引理</h4>
+<p>设 \(\{a_{n}\}\) 为正项数列，则</p>
+<div class="formula">\(\varliminf_{n\to+\infty} \frac{a_{n+1}}{a_{n}} \le \varliminf_{n\to+\infty} \sqrt[n]{a_{n}} \le \varlimsup_{n\to+\infty} \sqrt[n]{a_{n}} \le \varlimsup_{n\to+\infty} \frac{a_{n+1}}{a_{n}}\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>上述引理说明 Cauchy 判别法比 d'Alembert 判别法的适用范围要广。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.5'（Cauchy凝聚判别法）</h4>
+<p>设 \(\{a_{n}\}\) 为递减的正项数列（即 \(a_{n} \ge a_{n+1} \ge 0\)），则</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛的充要条件是 \(\sum\limits_{n=1}^{+\infty} 2^{n} a_{2^{n}}\) 收敛。</div>
+<p>此判别法特别适用于证明p-级数的敛散性：取 \(a_{n} = 1/n^{p}\)，则 \(\sum 2^{n} a_{2^{n}} = \sum 2^{n(1-p)}\)，当 \(p&gt;1\) 时收敛，\(p\le 1\) 时发散。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.6（Raabe判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 为正项级数，且满足 \(a_{n} &gt; 0\)，设</p>
+<div class="formula">\(r = \lim\limits_{n\to+\infty} n\bigl(\frac{a_{n}}{a_{n+1}} - 1\bigr)\)</div>
+<p>则</p>
+<p>(1) 当 \(r &gt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 当 \(r &lt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.7（Bertrand判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 为正项级数，且满足 \(a_{n} &gt; 0\)，设</p>
+<div class="formula">\(r = \lim\limits_{n\to+\infty} (\ln n)\bigl[n\bigl(\frac{a_{n}}{a_{n+1}} - 1\bigr) - 1\bigr]\)</div>
+<p>则</p>
+<p>(1) 当 \(r &gt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛；</p>
+<p>(2) 当 \(r &lt; 1\) 时，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 发散。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.8（Cauchy积分判别法）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 是正项级数。若存在 \([1, +\infty)\) 上连续的非负单调递减函数 \(f(x)\) 满足 \(a_{n} = f(n)\)（\(n = 1, 2, \ldots\)），则 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛的充要条件是：\(\{F(n)\}\) 有界，其中 \(F(n) = \int_{1}^{n} f(x)\,dx\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>Cauchy积分判别法亦可叙述为：在定理2.8的条件下，\(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛的充要条件为 \(\int_{1}^{+\infty} f(x)\,dx\) 收敛，其中 \(\int_{1}^{+\infty} f(x)\,dx\) 是广义积分。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（收敛/发散得更慢）</h4>
+<p>设 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 和 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 是两个给定的正项级数。</p>
+<p>(1) 若两者皆收敛，且 \(\lim\limits_{n\to+\infty} \frac{a_{n}}{b_{n}} = 0\)，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 比 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛得更慢；</p>
+<p>(2) 若两者皆发散，且 \(\lim\limits_{n\to+\infty} \frac{b_{n}}{a_{n}} = 0\)，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 比 \(\sum\limits_{n=1}^{+\infty} b_{n}\) 发散得更慢。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 2.9（du Bois-Reymond定理）</h4>
+<p>(1) 对任一收敛的正项级数，都存在比它收敛得更慢的正项级数；</p>
+<p>(2) 对任一发散的正项级数，都存在比它发散得更慢的正项级数。</p>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>由 du Bois-Reymond 定理，不存在"万能"的判别法。</p>
+</div>
+<div class="knowledge-item note">
+<h4>Euler常数 \(\gamma\)</h4>
+<p>Euler常数定义为</p>
+<div class="formula">\(\gamma = \lim\limits_{n\to+\infty} \left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} - \ln n\right) = 0.577215\ldots\)</div>
+<p>它出现在许多级数敛散性的极限表达式中，例如</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} \left[\frac{1}{n} - \ln\left(1 + \frac{1}{n}\right)\right] = \gamma\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>例（利用比较判别法）</h4>
+<p>判别 \(\sum\limits_{n=1}^{+\infty} \frac{n+3}{2n^{3} - n}\) 的敛散性。</p>
+<p>解：\(\frac{n+3}{2n^{3} - n} \sim \frac{n}{2n^{3}} = \frac{1}{2n^{2}}\) 当 \(n\to+\infty\)，而 \(\sum\frac{1}{n^{2}}\) 收敛，故原级数收敛。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（利用Cauchy凝聚判别法）</h4>
+<p>判别 \(\sum\limits_{n=2}^{+\infty} \frac{1}{n\ln^{p} n}\) 的敛散性。</p>
+<p>解：取 \(a_{n} = 1/(n\ln^{p} n)\)，它是递减的正项数列。由Cauchy凝聚判别法，考虑 \(\sum 2^{n} a_{2^{n}} = \sum 2^{n} \frac{1}{2^{n} \ln^{p}(2^{n})} = \sum \frac{1}{(n\ln 2)^{p}} = \frac{1}{(\ln 2)^{p}} \sum \frac{1}{n^{p}}\)。</p>
+<p>故当 \(p &gt; 1\) 时原级数收敛，\(p \le 1\) 时发散。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

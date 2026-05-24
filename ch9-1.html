@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§1 空间曲线与弧长 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第九章 曲线积分与曲面积分</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch9.html">← 返回目录</a>
+<div class="content-section">
+<h2>§1 空间曲线与弧长</h2>
+<div class="knowledge-item definition">
+<h4>定义（空间曲线的参数表示）</h4>
+<p>空间曲线 \(L\) 可用参数方程表示为</p>
+<div class="formula">\(L:\quad \begin{cases} x = x(t), \\ y = y(t), \\ z = z(t), \end{cases} \quad t \in [\alpha, \beta]\)</div>
+<p>其中 \(t\) 为参数，\(A = (x(\alpha), y(\alpha), z(\alpha))\) 和 \(B = (x(\beta), y(\beta), z(\beta))\) 分别为曲线的起点和终点。</p>
+</div>
+<div class="knowledge-item definition">
+<h4>定义（弧长）</h4>
+<p>对区间 \([\alpha, \beta]\) 作分割 \(T: \alpha = t_{0} &lt; t_{1} &lt; \cdots &lt; t_{n} = \beta\)，记 \(P_{i} = (x(t_{i}), y(t_{i}), z(t_{i}))\)，则折线长度为</p>
+<div class="formula">\(l(T) = \sum\limits_{i=1}^{n} |P_{i-1}P_{i}|\)</div>
+<p>若 \(\sup\limits_{T} l(T) &lt; +\infty\)，则称曲线 \(L\) 是<strong>可求长</strong>的，并称 \(s := \sup\limits_{T} l(T)\) 为曲线 \(L\) 的<strong>弧长</strong>。</p>
+</div>
+<div class="knowledge-item theorem">
+<h4>定理 1.1（弧长公式）</h4>
+<p>设曲线 \(L\) 由参数方程 \(x = x(t), y = y(t), z = z(t)\)（\(t \in [\alpha, \beta]\)）给出，且 \(x(t), y(t), z(t) \in C^{1}[\alpha, \beta]\)，则 \(L\) 可求长，且弧长为</p>
+<div class="formula">\(s = \int_{\alpha}^{\beta} \sqrt{[x'(t)]^{2} + [y'(t)]^{2} + [z'(t)]^{2}} \, dt\)</div>
+</div>
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>弧长与参数选取无关。若取自然参数 \(s\)（弧长参数），则有 \(\bigl|\frac{d\boldsymbol{r}}{ds}\bigr| = 1\)，其中 \(\boldsymbol{r}(s) = (x(s), y(s), z(s))\)。</p>
+</div>
+<div class="knowledge-item note">
+<h4>参数变换</h4>
+<p>若作参数变换 \(t = t(\tau)\)，\(\tau \in [a, b]\)，且 \(t'(\tau) \neq 0\)，则弧长公式保持不变：</p>
+<div class="formula">\(s = \int_{a}^{b} \sqrt{[x'(t(\tau))]^{2} + [y'(t(\tau))]^{2} + [z'(t(\tau))]^{2}} \, |t'(\tau)| \, d\tau\)</div>
+<p>这保证了弧长是曲线本身的几何量，与参数表示无关。</p>
+</div>
+<div class="knowledge-item note">
+<h4>例（Koch雪花曲线）</h4>
+<p>并非所有连续曲线都可求长。分形曲线如Koch雪花曲线，其长度趋于无穷大，是不可求长的连续曲线的经典例子。</p>
+</div>
+<div class="knowledge-item note">
+<h4>性质</h4>
+<p>(1) 若 \(L = L_{1} + L_{2}\)（\(L\) 由 \(L_{1}, L_{2}\) 拼接而成），则 \(s = s_{1} + s_{2}\)；</p>
+<p>(2) 弧长具有有限可加性。</p>
+</div>
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>
