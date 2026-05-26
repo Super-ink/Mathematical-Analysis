@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§3 多元函数的连续性 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§3 多元函数的连续性</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（连续性）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\)，\(x_{0} \in D\)。若 \(\forall \varepsilon > 0\)，\(\exists \delta > 0\)，使得当 \(x \in D\) 且 \(\|x - x_{0}\| < \delta\) 时，有</p>
+<div class="formula">\(|f(x) - f(x_{0})| < \varepsilon\)</div>
+<p>则称 \(f\) 在 \(x_{0}\) 处<strong>连续</strong>。等价地，\(\lim\limits_{x \to x_{0}} f(x) = f(x_{0})\)。</p>
+<p>若 \(f\) 在 \(D\) 中每一点都连续，则称 \(f\) 在 \(D\) 上连续，记作 \(f \in C(D)\)。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 3.1（连续函数的运算）</h4>
+<p>设 \(f, g\) 在 \(x_{0}\) 处连续，则：</p>
+<p>(1) \(f \pm g\) 在 \(x_{0}\) 处连续；</p>
+<p>(2) \(f \cdot g\) 在 \(x_{0}\) 处连续；</p>
+<p>(3) 若 \(g(x_{0}) \neq 0\)，则 \(f/g\) 在 \(x_{0}\) 处连续。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 3.2（复合函数的连续性）</h4>
+<p>设 \(u = g(x)\) 在 \(x_{0}\) 处连续，\(y = f(u)\) 在 \(u_{0} = g(x_{0})\) 处连续，则复合函数 \(y = f(g(x))\) 在 \(x_{0}\) 处连续。</p>
+<p>对于向量值情形，若 \(g: \mathbb{R}^{n} \to \mathbb{R}^{m}\) 在 \(x_{0}\) 处连续，\(f: \mathbb{R}^{m} \to \mathbb{R}\) 在 \(g(x_{0})\) 处连续，则 \(f \circ g\) 在 \(x_{0}\) 处连续。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（一致连续性）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\)。若 \(\forall \varepsilon > 0\)，\(\exists \delta > 0\)，使得对任意 \(x, y \in D\)，当 \(\|x - y\| < \delta\) 时，有</p>
+<div class="formula">\(|f(x) - f(y)| < \varepsilon\)</div>
+<p>则称 \(f\) 在 \(D\) 上<strong>一致连续</strong>。</p>
+<p>一致连续性与连续性的区别在于 \(\delta\) 的选取与具体位置无关（只依赖于 \(\varepsilon\)）。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 3.3（Cantor定理）</h4>
+<p>若 \(f\) 在<strong>有界闭集</strong> \(D \subset \mathbb{R}^{n}\) 上连续，则 \(f\) 在 \(D\) 上一致连续。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 3.4（介值定理）</h4>
+<p>设 \(f\) 在<strong>连通开集</strong>（区域）\(D \subset \mathbb{R}^{n}\) 上连续。若 \(x_{1}, x_{2} \in D\)，\(f(x_{1}) < f(x_{2})\)，则对任意 \(\eta \in (f(x_{1}), f(x_{2}))\)，存在 \(x_{\eta} \in D\) 使得 \(f(x_{\eta}) = \eta\)。</p>
+<p>即连续函数将连通集映射为连通集（区间）。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（向量值函数的连续性）</h4>
+<p>向量值函数 \(f: D \to \mathbb{R}^{m}\) 在 \(x_{0}\) 处连续当且仅当每个分量函数 \(f_{i}: D \to \mathbb{R}\)（\(i = 1, \ldots, m\)）在 \(x_{0}\) 处连续。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

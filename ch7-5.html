@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§5 偏导数与全微分 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§5 偏导数与全微分</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（偏导数）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\)，\(x_{0} = (x_{1}^{0}, \ldots, x_{n}^{0}) \in D\)。若极限</p>
+<div class="formula">\(\lim_{\Delta x_{i} \to 0} \frac{f(x_{1}^{0}, \ldots, x_{i}^{0} + \Delta x_{i}, \ldots, x_{n}^{0}) - f(x_{1}^{0}, \ldots, x_{n}^{0})}{\Delta x_{i}}\)</div>
+<p>存在，则称该极限值为 \(f\) 在 \(x_{0}\) 处关于 \(x_{i}\) 的<strong>偏导数</strong>，记作</p>
+<div class="formula">\(\frac{\partial f}{\partial x_{i}}(x_{0}) = f_{x_{i}}(x_{0})\)</div>
+<p>对二元函数 \(z = f(x, y)\)，偏导数 \(f_{x}(x_{0}, y_{0})\) 的几何意义是曲面 \(z = f(x, y)\) 与平面 \(y = y_{0}\) 的交线在 \((x_{0}, y_{0})\) 处的切线斜率。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（全微分——可微性）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\)，\(x_{0} \in D\)。若存在与 \(\Delta x\) 无关的向量 \(A = (a_{1}, \ldots, a_{n})\)，使得</p>
+<div class="formula">\(f(x_{0} + \Delta x) - f(x_{0}) = A \cdot \Delta x + o(\|\Delta x\|),\quad \|\Delta x\| \to 0\)</div>
+<p>即</p>
+<div class="formula">\(\lim_{\|\Delta x\| \to 0} \frac{f(x_{0} + \Delta x) - f(x_{0}) - \sum\limits_{i=1}^{n} a_{i}\Delta x_{i}}{\|\Delta x\|} = 0\)</div>
+<p>则称 \(f\) 在 \(x_{0}\) 处<strong>可微（全微分存在）</strong>，\(A \cdot \Delta x\) 称为 \(f\) 在 \(x_{0}\) 处的<strong>全微分</strong>，记作</p>
+<div class="formula">\(df(x_{0}) = \sum_{i=1}^{n} \frac{\partial f}{\partial x_{i}}(x_{0})\,dx_{i}\)</div>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 5.1（可微的必要条件）</h4>
+<p>若 \(f\) 在 \(x_{0}\) 处可微，则：</p>
+<p>(1) \(f\) 在 \(x_{0}\) 处连续；</p>
+<p>(2) \(f\) 在 \(x_{0}\) 处各个偏导数存在，且全微分中的系数 \(a_{i} = \frac{\partial f}{\partial x_{i}}(x_{0})\)。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 5.2（可微的充分条件）</h4>
+<p>若 \(f\) 在 \(x_{0}\) 的某邻域内各个偏导数存在，且各个偏导数在 \(x_{0}\) 处连续，则 \(f\) 在 \(x_{0}\) 处可微。</p>
+<p>即：\(f \in C^{1}(U(x_{0})) \implies f\) 在 \(x_{0}\) 处可微。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（偏导数存在与可微的关系）</h4>
+<p>偏导数存在是可微的必要条件而非充分条件。经典反例：</p>
+<div class="formula">\(f(x, y) = \begin{cases} \frac{xy}{x^{2}+y^{2}}, & (x,y) \neq (0,0) \\ 0, & (x,y) = (0,0) \end{cases}\)</div>
+<p>在 \((0,0)\) 处 \(f_{x}(0,0) = f_{y}(0,0) = 0\)，但 \(f\) 在 \((0,0)\) 处不连续（从而不可微）。</p>
+<p>另一个经典反例：</p>
+<div class="formula">\(f(x, y) = \begin{cases} (x^{2}+y^{2})\sin\frac{1}{x^{2}+y^{2}}, & (x,y) \neq (0,0) \\ 0, & (x,y) = (0,0) \end{cases}\)</div>
+<p>该函数在 \((0,0)\) 处偏导数存在，且可微，但偏导数在 \((0,0)\) 处不连续。这说明 \(C^{1}\) 条件是充分但非必要的。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 5.3（中值定理）</h4>
+<p>设 \(f\) 在凸开集 \(D \subset \mathbb{R}^{n}\) 上可微，则对任意 \(x, y \in D\)，存在 \(\theta \in (0,1)\)，使得</p>
+<div class="formula">\(f(y) - f(x) = \nabla f(x + \theta(y-x)) \cdot (y-x)\)</div>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§12 空间曲线与曲面的几何 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§12 空间曲线与曲面的几何</h2>
+
+<h3>空间曲线</h3>
+
+<div class="knowledge-item definition">
+<h4>定义（空间曲线的参数方程）</h4>
+<p>空间曲线可以参数方程表示为</p>
+<div class="formula">\(\Gamma:\; \boldsymbol{r} = \boldsymbol{r}(t) = (x(t), y(t), z(t)),\quad t \in I\)</div>
+<p>其中 \(t\) 为参数。曲线的<strong>切向量</strong>为</p>
+<div class="formula">\(\dot{\boldsymbol{r}}(t) = \frac{d\boldsymbol{r}}{dt} = (\dot{x}(t), \dot{y}(t), \dot{z}(t))\)</div>
+<p>若 \(\dot{\boldsymbol{r}}(t) \neq 0\)，则称曲线在该点为<strong>正则点</strong>。曲线在 \(t_{0}\) 处的<strong>切线方程</strong>为</p>
+<div class="formula">\(\boldsymbol{r} = \boldsymbol{r}(t_{0}) + \dot{\boldsymbol{r}}(t_{0})(t - t_{0})\)</div>
+<p>或写为对称式：</p>
+<div class="formula">\(\frac{x - x(t_{0})}{\dot{x}(t_{0})} = \frac{y - y(t_{0})}{\dot{y}(t_{0})} = \frac{z - z(t_{0})}{\dot{z}(t_{0})}\)</div>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（法平面）</h4>
+<p>过曲线上的点 \(P_{0}\) 且垂直于切线的平面称为曲线的<strong>法平面</strong>，其方程为</p>
+<div class="formula">\(\dot{x}(t_{0})(x - x(t_{0})) + \dot{y}(t_{0})(y - y(t_{0})) + \dot{z}(t_{0})(z - z(t_{0})) = 0\)</div>
+<p>或写作向量形式 \((\boldsymbol{r} - \boldsymbol{r}(t_{0}), \dot{\boldsymbol{r}}(t_{0})) = 0\)。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（曲线的弧长）</h4>
+<p>设曲线 \(\boldsymbol{r} = \boldsymbol{r}(t)\) 在 \([a,b]\) 上 \(C^{1}\)，则从 \(t=a\) 到 \(t=b\) 的<strong>弧长</strong>为</p>
+<div class="formula">\(s = \int_{a}^{b} \|\dot{\boldsymbol{r}}(t)\|\,dt = \int_{a}^{b} \sqrt{[\dot{x}(t)]^{2} + [\dot{y}(t)]^{2} + [\dot{z}(t)]^{2}}\,dt\)</div>
+<p>弧微分：\(ds = \|\dot{\boldsymbol{r}}(t)\|\,dt = \sqrt{dx^{2} + dy^{2} + dz^{2}}\)。</p>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 1（圆锥螺线）</h4>
+<p>求曲线 \(\boldsymbol{r}(t) = (at\cos t, -at\sin t, bt)\)（\(a,b > 0\)）在 \(t \in [0, 2\pi]\) 上的弧长。</p>
+<p><strong>解</strong>：\(\dot{\boldsymbol{r}}(t) = (a\cos t - at\sin t,\; -a\sin t - at\cos t,\; b)\)</p>
+<div class="formula">\(\|\dot{\boldsymbol{r}}(t)\|^{2} = a^{2}[\cos t - t\sin t]^{2} + a^{2}[-\sin t - t\cos t]^{2} + b^{2} = a^{2}t^{2} + a^{2} + b^{2}\)</div>
+<div class="formula">\(s = \int_{0}^{2\pi} \sqrt{a^{2}t^{2} + a^{2} + b^{2}}\,dt = \frac{a}{2}\left[t\sqrt{t^{2}+c^{2}} + c^{2}\ln\left(t + \sqrt{t^{2}+c^{2}}\right)\right]_{0}^{2\pi}\)</div>
+<p>其中 \(c^{2} = 1 + \frac{b^{2}}{a^{2}}\)。</p>
+</div>
+
+<h3>空间曲面</h3>
+
+<div class="knowledge-item definition">
+<h4>定义（空间曲面的参数方程）</h4>
+<p>空间曲面可以参数方程表示为</p>
+<div class="formula">\(\boldsymbol{r} = \boldsymbol{r}(u,v) = (x(u,v), y(u,v), z(u,v)),\quad (u,v) \in D\)</div>
+<p>曲面的<strong>切向量</strong>为偏导向量：</p>
+<div class="formula">\(\boldsymbol{r}_{u} = (x_{u}, y_{u}, z_{u}),\quad \boldsymbol{r}_{v} = (x_{v}, y_{v}, z_{v})\)</div>
+<p>若 \(\boldsymbol{r}_{u} \times \boldsymbol{r}_{v} \neq 0\)，则称该点为<strong>正则点</strong>。曲面的<strong>法向量</strong>为</p>
+<div class="formula">\(\boldsymbol{n}(u,v) = \boldsymbol{r}_{u} \times \boldsymbol{r}_{v} = \begin{vmatrix}
+\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k} \\
+x_{u} & y_{u} & z_{u} \\
+x_{v} & y_{v} & z_{v}
+\end{vmatrix} = \left(\frac{\partial(y,z)}{\partial(u,v)},\; \frac{\partial(z,x)}{\partial(u,v)},\; \frac{\partial(x,y)}{\partial(u,v)}\right)\)</div>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（曲面的切平面与法线）</h4>
+<p>曲面 \(\boldsymbol{r} = \boldsymbol{r}(u,v)\) 在点 \(P_{0} = \boldsymbol{r}(u_{0},v_{0})\) 处的<strong>切平面方程</strong>为</p>
+<div class="formula">\((\boldsymbol{r} - \boldsymbol{r}(u_{0},v_{0}),\; \boldsymbol{n}(u_{0},v_{0})) = 0\)</div>
+<p>即：</p>
+<div class="formula">\(\frac{\partial(y,z)}{\partial(u,v)}(P_{0})(x - x_{0}) + \frac{\partial(z,x)}{\partial(u,v)}(P_{0})(y - y_{0}) + \frac{\partial(x,y)}{\partial(u,v)}(P_{0})(z - z_{0}) = 0\)</div>
+<p><strong>法线方程</strong>为：</p>
+<div class="formula">\(\frac{x - x_{0}}{\frac{\partial(y,z)}{\partial(u,v)}(P_{0})} = \frac{y - y_{0}}{\frac{\partial(z,x)}{\partial(u,v)}(P_{0})} = \frac{z - z_{0}}{\frac{\partial(x,y)}{\partial(u,v)}(P_{0})}\)</div>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 2（隐式曲面的切平面与法线）</h4>
+<p>求曲面 \(e^{z} - z + xy = 3\) 在点 \((2,1,0)\) 处的切平面和法线。</p>
+<p><strong>解</strong>：令 \(F(x,y,z) = e^{z} - z + xy - 3 = 0\)。则</p>
+<div class="formula">\(F_{x} = y,\; F_{y} = x,\; F_{z} = e^{z} - 1\)</div>
+<p>在 \((2,1,0)\) 处，\(\boldsymbol{n} = (F_{x}, F_{y}, F_{z}) = (1, 2, 0)\)。</p>
+<p>切平面方程：\(1\cdot(x-2) + 2\cdot(y-1) + 0\cdot(z-0) = 0\)，即 \(x + 2y - 4 = 0\)。</p>
+<p>法线方程：\(\frac{x-2}{1} = \frac{y-1}{2} = \frac{z}{0}\)（即 \(z = 0\) 平面上的直线）。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（隐式曲面的法向量）</h4>
+<p>对于隐式方程 \(F(x,y,z) = 0\) 表示的曲面，若 \(F \in C^{1}\) 且 \(\nabla F \neq 0\)，则点 \(P_{0}\) 处的法向量为</p>
+<div class="formula">\(\boldsymbol{n} = (F_{x}, F_{y}, F_{z})(P_{0})\)</div>
+<p>切平面方程：\(F_{x}(P_{0})(x - x_{0}) + F_{y}(P_{0})(y - y_{0}) + F_{z}(P_{0})(z - z_{0}) = 0\)</p>
+<p>法线方程：\(\displaystyle \frac{x - x_{0}}{F_{x}(P_{0})} = \frac{y - y_{0}}{F_{y}(P_{0})} = \frac{z - z_{0}}{F_{z}(P_{0})}\)</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

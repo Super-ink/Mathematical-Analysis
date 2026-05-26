@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§11 条件极值 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§11 条件极值（Lagrange乘数法）</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（条件极值问题）</h4>
+<p>条件极值问题的一般形式：</p>
+<div class="formula">\(\begin{cases}
+\text{求 } u = f(x_{1}, \ldots, x_{n}) \text{ 的极值} \\[4pt]
+\text{满足约束条件 } \varphi_{1}(x_{1}, \ldots, x_{n}) = 0 \\
+\qquad\qquad\vdots \\
+\varphi_{m}(x_{1}, \ldots, x_{n}) = 0
+\end{cases}\)</div>
+<p>其中 \(m < n\)，\(f, \varphi_{1}, \ldots, \varphi_{m} \in C^{1}\)，且约束条件的Jacobi矩阵满秩。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 11.1（Lagrange乘数法——必要条件）</h4>
+<p>设 \(x_{0} = (x_{1}^{0}, \ldots, x_{n}^{0})\) 是条件极值问题的极值点，且约束条件的Jacobi矩阵在 \(x_{0}\) 处秩为 \(m\)。则存在常数 \(\lambda_{1}^{0}, \ldots, \lambda_{m}^{0}\)（称为<strong>Lagrange乘子</strong>），使得 \(x_{0}\) 是Lagrange函数</p>
+<div class="formula">\(F(x_{1}, \ldots, x_{n}, \lambda_{1}, \ldots, \lambda_{m}) = f(x) - \sum_{i=1}^{m} \lambda_{i}\varphi_{i}(x)\)</div>
+<p>的驻点，即满足</p>
+<div class="formula">\(\begin{cases}
+\displaystyle \frac{\partial F}{\partial x_{j}} = \frac{\partial f}{\partial x_{j}} - \sum_{i=1}^{m} \lambda_{i}\frac{\partial\varphi_{i}}{\partial x_{j}} = 0,\quad j = 1, \ldots, n \\[8pt]
+\displaystyle \frac{\partial F}{\partial \lambda_{i}} = -\varphi_{i}(x) = 0,\quad i = 1, \ldots, m
+\end{cases}\)</div>
+<p>共 \(n+m\) 个方程解 \(n+m\) 个未知数。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（几何解释）</h4>
+<p>条件极值的几何意义是：在约束流形上，梯度 \(\nabla f\) 与约束的梯度 \(\nabla\varphi_{1}, \ldots, \nabla\varphi_{m}\) 线性相关。即 \(\nabla f \in \text{span}\{\nabla\varphi_{1}, \ldots, \nabla\varphi_{m}\}\)。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 11.2（二阶充分条件）</h4>
+<p>设 \(f, \varphi_{i} \in C^{2}\)，\(x_{0}\) 满足Lagrange必要条件。考虑<strong>带边值Hessian矩阵</strong>（加边Hessian）：</p>
+<div class="formula">\(H_{L} = \begin{pmatrix}
+0 & \cdots & 0 & \frac{\partial\varphi_{1}}{\partial x_{1}} & \cdots & \frac{\partial\varphi_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & \frac{\partial\varphi_{m}}{\partial x_{1}} & \cdots & \frac{\partial\varphi_{m}}{\partial x_{n}} \\[6pt]
+\frac{\partial\varphi_{1}}{\partial x_{1}} & \cdots & \frac{\partial\varphi_{m}}{\partial x_{1}} & \frac{\partial^{2}F}{\partial x_{1}^{2}} & \cdots & \frac{\partial^{2}F}{\partial x_{1}\partial x_{n}} \\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+\frac{\partial\varphi_{1}}{\partial x_{n}} & \cdots & \frac{\partial\varphi_{m}}{\partial x_{n}} & \frac{\partial^{2}F}{\partial x_{n}\partial x_{1}} & \cdots & \frac{\partial^{2}F}{\partial x_{n}^{2}}
+\end{pmatrix}\)</div>
+<p>在约束切空间上，若 \(H_{L}\) 的符号确定，则可判定极值类型。</p>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 1（一个约束条件）</h4>
+<p>求 \(f(x,y,z) = x^{2} + y^{2} + z^{2}\) 在条件 \(x + y + z = 1\) 及 \(x + 2y + 3z = 6\) 下的极值。</p>
+<p><strong>解</strong>：构造Lagrange函数</p>
+<div class="formula">\(F = x^{2} + y^{2} + z^{2} - \lambda(x+y+z-1) - \mu(x+2y+3z-6)\)</div>
+<p>由 \(F_{x}=2x-\lambda-\mu=0\)，\(F_{y}=2y-\lambda-2\mu=0\)，\(F_{z}=2z-\lambda-3\mu=0\) 及约束条件，解得</p>
+<div class="formula">\(x = -\frac{5}{3},\; y = \frac{1}{3},\; z = \frac{7}{3},\; \lambda = -\frac{22}{3},\; \mu = \frac{4}{3}\)</div>
+<p>由二阶导数矩阵正定知该点为极小值点，极小值为 \(f = \frac{25}{3}\)。</p>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 2（体积固定的最小表面积）</h4>
+<p>求体积 \(V = xyz = 4\) 的长方体，使其表面积 \(S = xy + 2xz + 2yz\) 最小。</p>
+<p><strong>解</strong>：设Lagrange函数</p>
+<div class="formula">\(F = xy + 2xz + 2yz - \lambda(xyz - 4)\)</div>
+<p>由 \(F_{x} = y + 2z - \lambda yz = 0\)，\(F_{y} = x + 2z - \lambda xz = 0\)，\(F_{z} = 2x + 2y - \lambda xy = 0\) 及 \(xyz = 4\)，解得 \(x = y = 2\)，\(z = 1\)，\(\lambda = 2\)。最小表面积为 \(S = 12\)。</p>
+<p>用均值不等式验证：\(S = xy + 2xz + 2yz \ge 3\sqrt[3]{xy \cdot 2xz \cdot 2yz} = 3\sqrt[3]{4x^{2}y^{2}z^{2}} = 3\sqrt[3]{4 \cdot 16} = 12\)，等号当 \(x=y=2z\) 即 \(x=y=2, z=1\) 时成立，确为全局极小。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

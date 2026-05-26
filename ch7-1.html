@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§1 n维欧氏空间 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§1 n维欧氏空间</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（n维欧氏空间）</h4>
+<p>n维欧氏空间 \(\mathbb{R}^{n}\) 是所有n元有序实数组 \((x_{1}, x_{2}, \ldots, x_{n})\) 构成的集合。对任意 \(x = (x_{1}, \ldots, x_{n}), y = (y_{1}, \ldots, y_{n}) \in \mathbb{R}^{n}\)，定义：</p>
+<p><strong>内积</strong>：\(\langle x, y \rangle = \sum\limits_{i=1}^{n} x_{i} y_{i}\)</p>
+<p><strong>范数</strong>：\(\|x\| = \sqrt{\langle x, x \rangle} = \sqrt{\sum\limits_{i=1}^{n} x_{i}^{2}}\)</p>
+<p><strong>距离</strong>：\(d(x, y) = \|x - y\| = \sqrt{\sum\limits_{i=1}^{n} (x_{i} - y_{i})^{2}}\)</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 1.1（内积与范数的性质）</h4>
+<p>对任意 \(x, y, z \in \mathbb{R}^{n}\) 和 \(\lambda \in \mathbb{R}\)，有：</p>
+<p>(1) <strong>正定性</strong>：\(\langle x, x \rangle \ge 0\)，且 \(\langle x, x \rangle = 0 \iff x = 0\)</p>
+<p>(2) <strong>对称性</strong>：\(\langle x, y \rangle = \langle y, x \rangle\)</p>
+<p>(3) <strong>线性性</strong>：\(\langle \lambda x + \mu y, z \rangle = \lambda\langle x, z \rangle + \mu\langle y, z \rangle\)</p>
+<p>(4) <strong>Cauchy-Schwarz不等式</strong>：\(|\langle x, y \rangle| \le \|x\|\|y\|\)</p>
+<p>(5) <strong>三角不等式</strong>：\(\|x + y\| \le \|x\| + \|y\|\)</p>
+<p>(6) <strong>平行四边形法则</strong>：\(\|x + y\|^{2} + \|x - y\|^{2} = 2(\|x\|^{2} + \|y\|^{2})\)</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（邻域与点集分类）</h4>
+<p>设 \(x_{0} \in \mathbb{R}^{n}\)，\(\delta > 0\)，称 \(U(x_{0}, \delta) = \{x \in \mathbb{R}^{n} \mid \|x - x_{0}\| < \delta\}\) 为 \(x_{0}\) 的 \(\delta\)-<strong>邻域</strong>（即n维开球）。</p>
+<p>设 \(E \subset \mathbb{R}^{n}\)，\(x_{0} \in \mathbb{R}^{n}\)：</p>
+<p>(1) 若 \(\exists \delta > 0\) 使得 \(U(x_{0}, \delta) \subset E\)，则称 \(x_{0}\) 为 \(E\) 的<strong>内点</strong>；</p>
+<p>(2) 若 \(\forall \delta > 0\)，\(U(x_{0}, \delta) \cap E \neq \varnothing\) 且 \(U(x_{0}, \delta) \cap (\mathbb{R}^{n}\setminus E) \neq \varnothing\)，则称 \(x_{0}\) 为 \(E\) 的<strong>边界点</strong>；</p>
+<p>(3) 若 \(\forall \delta > 0\)，\(U(x_{0}, \delta) \setminus \{x_{0}\} \cap E \neq \varnothing\)，则称 \(x_{0}\) 为 \(E\) 的<strong>聚点（极限点）</strong>。</p>
+<p>\(E\) 的全体内点构成的集合称为 \(E\) 的<strong>内部</strong>，记作 \(\mathring{E}\) 或 \(E^{\circ}\)。\(E\) 的全体边界点构成的集合称为 \(E\) 的<strong>边界</strong>，记作 \(\partial E\)。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（开集与闭集）</h4>
+<p>设 \(E \subset \mathbb{R}^{n}\)：</p>
+<p>(1) 若 \(E\) 中的每个点都是内点（即 \(E = \mathring{E}\)），则称 \(E\) 为<strong>开集</strong>；</p>
+<p>(2) 若 \(E\) 包含其所有聚点（或 \(\partial E \subset E\)），则称 \(E\) 为<strong>闭集</strong>。</p>
+<p>开集的补集是闭集，闭集的补集是开集。空集 \(\varnothing\) 和全空间 \(\mathbb{R}^{n}\) 既是开集也是闭集。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 1.2（开集与闭集的性质）</h4>
+<p>(1) 任意多个开集的并集是开集，有限多个开集的交集是开集；</p>
+<p>(2) 任意多个闭集的交集是闭集，有限多个闭集的并集是闭集。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（点列收敛与Cauchy列）</h4>
+<p>设 \(\{x_{k}\}_{k=1}^{\infty} \subset \mathbb{R}^{n}\)，\(x_{0} \in \mathbb{R}^{n}\)：</p>
+<p>(1) 若 \(\forall \varepsilon > 0\)，\(\exists N \in \mathbb{N}\)，使得当 \(k > N\) 时，有 \(\|x_{k} - x_{0}\| < \varepsilon\)，则称 \(\{x_{k}\}\) <strong>收敛</strong>于 \(x_{0}\)，记作 \(\lim\limits_{k\to\infty} x_{k} = x_{0}\)。</p>
+<p>(2) 若 \(\forall \varepsilon > 0\)，\(\exists N \in \mathbb{N}\)，使得当 \(k, l > N\) 时，有 \(\|x_{k} - x_{l}\| < \varepsilon\)，则称 \(\{x_{k}\}\) 为<strong>Cauchy列（基本列）</strong>。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 1.3（分量收敛与Cauchy准则）</h4>
+<p>(1) 点列 \(\{x_{k}\}\) 收敛于 \(x_{0} = (x_{1}^{0}, \ldots, x_{n}^{0})\) 当且仅当每个分量序列 \(\{x_{k}^{(i)}\}\) 收敛于 \(x_{i}^{0}\)（\(i = 1, \ldots, n\)）。</p>
+<p>(2) \(\mathbb{R}^{n}\) 中收敛点列必为Cauchy列；反之，Cauchy列必收敛（\(\mathbb{R}^{n}\) 的完备性）。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（区域）</h4>
+<p>(1) 设 \(E \subset \mathbb{R}^{n}\)，若 \(E\) 中任意两点均可用完全含于 \(E\) 的折线连接，则称 \(E\) 为<strong>连通</strong>的。</p>
+<p>(2) 连通的开集称为<strong>开区域</strong>（简称<strong>区域</strong>）。</p>
+<p>(3) 开区域连同其边界称为<strong>闭区域</strong>。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

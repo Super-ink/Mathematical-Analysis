@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§10 隐函数定理 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§10 隐函数定理</h2>
+
+<div class="knowledge-item theorem">
+<h4>定理 10.1（一个方程的隐函数定理）</h4>
+<p>设 \(F(x_{1}, \ldots, x_{n}, y)\) 在点 \(P_{0} = (x_{1}^{0}, \ldots, x_{n}^{0}, y^{0})\) 的某邻域 \(U\) 内满足：</p>
+<p>(1) \(F \in C^{1}(U)\)；</p>
+<p>(2) \(F(P_{0}) = 0\)；</p>
+<p>(3) \(F_{y}(P_{0}) \neq 0\)。</p>
+<p>则存在 \(P_{0}\) 的邻域 \(V \times W\)，使得方程 \(F(x_{1}, \ldots, x_{n}, y) = 0\) 唯一确定隐函数</p>
+<div class="formula">\(y = f(x_{1}, \ldots, x_{n})\)</div>
+<p>满足 \(y^{0} = f(x_{1}^{0}, \ldots, x_{n}^{0})\)，且 \(f \in C^{1}(V)\)，有</p>
+<div class="formula">\(\frac{\partial f}{\partial x_{i}} = -\frac{F_{x_{i}}(x, y)}{F_{y}(x, y)},\quad i = 1, \ldots, n\)</div>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（几何意义与条件）</h4>
+<p>条件 \(F_{y}(P_{0}) \neq 0\) 是本质的。若 \(F_{y}(P_{0}) = 0\)，则无法保证能唯一解出 \(y\)。例如 \(F(x, y) = y^{3} - x^{3} = 0\) 在 \((0,0)\) 处 \(F_{y}(0,0) = 0\)，但方程仍确定隐函数 \(y = x\)，这是因为此处虽 Jacobi 条件不满足但曲面有垂直切平面。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 10.2（隐函数组定理）</h4>
+<p>考虑方程组</p>
+<div class="formula">\(\begin{cases}
+F_{1}(x_{1}, \ldots, x_{m}, y_{1}, \ldots, y_{n}) = 0 \\
+\vdots \\
+F_{n}(x_{1}, \ldots, x_{m}, y_{1}, \ldots, y_{n}) = 0
+\end{cases}\)</div>
+<p>设 \(F = (F_{1}, \ldots, F_{n})\) 在点 \(P_{0} = (x_{0}, y_{0})\) 的邻域 \(U\) 内满足：</p>
+<p>(1) \(F \in C^{1}(U)\)；</p>
+<p>(2) \(F(P_{0}) = 0\)；</p>
+<p>(3) Jacobi行列式 \(\frac{\partial(F_{1}, \ldots, F_{n})}{\partial(y_{1}, \ldots, y_{n})}(P_{0}) \neq 0\)。</p>
+<p>则存在 \(x_{0}\) 的邻域 \(V\) 和唯一的隐函数组 \(y = f(x)\)，满足 \(y_{0} = f(x_{0})\)，\(F(x, f(x)) \equiv 0\)，且 \(f \in C^{1}(V)\)，其导数由</p>
+<div class="formula">\(f'(x) = -[F_{y}(x, y)]^{-1} F_{x}(x, y)\)</div>
+<p>给出，其中 \(F_{y}\) 和 \(F_{x}\) 分别为 \(F\) 对 \(y\) 和 \(x\) 的Jacobi矩阵。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 10.3（反函数定理）</h4>
+<p>设 \(f: G \subset \mathbb{R}^{n} \to \mathbb{R}^{n}\) 满足：</p>
+<p>(1) \(f \in C^{1}(G)\)；</p>
+<p>(2) \(y_{0} = f(x_{0})\)，\(x_{0} \in G\)；</p>
+<p>(3) Jacobi行列式 \(\det f'(x_{0}) \neq 0\)（即 \(f'(x_{0})\) 可逆）。</p>
+<p>则存在 \(x_{0}\) 的邻域 \(U \subset G\) 和 \(y_{0}\) 的邻域 \(V\)，使得 \(f: U \to V\) 是双射，且反函数 \(f^{-1}: V \to U\) 满足 \(f^{-1} \in C^{1}(V)\)，并有</p>
+<div class="formula">\((f^{-1})'(y) = [f'(x)]^{-1}\)</div>
+<p>其中 \(y = f(x)\)，\(x \in U\)。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（Jacobi行列式）</h4>
+<p>对映射 \(F: \mathbb{R}^{n} \to \mathbb{R}^{n}\)，\(F = (F_{1}, \ldots, F_{n})\)，Jacobi矩阵为</p>
+<div class="formula">\(F'(x) = \begin{pmatrix}
+\frac{\partial F_{1}}{\partial x_{1}} & \cdots & \frac{\partial F_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial F_{n}}{\partial x_{1}} & \cdots & \frac{\partial F_{n}}{\partial x_{n}}
+\end{pmatrix}\)</div>
+<p>其行列式称为 <strong>Jacobi行列式</strong>，记作</p>
+<div class="formula">\(\frac{\partial(F_{1}, \ldots, F_{n})}{\partial(x_{1}, \ldots, x_{n})} = \det F'(x)\)</div>
+</div>
+
+<div class="knowledge-item example">
+<h4>例</h4>
+<p>验证方程组</p>
+<div class="formula">\(\begin{cases}
+e^{x} + e^{y} - uv = 0 \\
+3e^{x+2y} + u^{2} - v^{2} = 0
+\end{cases}\)</div>
+<p>在 \((x,y,u,v) = (0,0,1,2)\) 附近确定隐函数 \(u = u(x,y), v = v(x,y)\)，并求偏导数。</p>
+<p><strong>解</strong>：令 \(F = e^{x}+e^{y}-uv\)，\(G = 3e^{x+2y}+u^{2}-v^{2}\)。Jacobi行列式</p>
+<div class="formula">\(\frac{\partial(F,G)}{\partial(u,v)} = \begin{vmatrix} -v & -u \\ 2u & -2v \end{vmatrix} = 2(u^{2}+v^{2})\)</div>
+<p>在 \((0,0,1,2)\) 处值为 \(10 \neq 0\)，故隐函数存在。求偏导：</p>
+<div class="formula">\(\begin{cases}
+e^{x} - u_{x}v - uv_{x} = 0 \\
+3e^{x+2y} + 2uu_{x} - 2vv_{x} = 0
+\end{cases}\)</div>
+<p>解得 \(u_{x} = \frac{2ve^{x} - 3ue^{x+2y}}{2(u^{2}+v^{2})}\)，\(v_{x} = \frac{2ue^{x} + 3ve^{x+2y}}{2(u^{2}+v^{2})}\)。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

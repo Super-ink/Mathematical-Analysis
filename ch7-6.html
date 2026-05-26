@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§6 高阶偏导数与全微分条件 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§6 高阶偏导数与全微分条件</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（高阶偏导数）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\) 在 \(D\) 上有偏导数 \(f_{x_{i}}\)。若 \(f_{x_{i}}\) 在 \(x_{0}\) 处关于 \(x_{j}\) 的偏导数存在，则称其为 \(f\) 在 \(x_{0}\) 处的<strong>二阶偏导数</strong>：</p>
+<div class="formula">\(\frac{\partial^{2}f}{\partial x_{j}\partial x_{i}}(x_{0}) = \frac{\partial}{\partial x_{j}}\left(\frac{\partial f}{\partial x_{i}}\right)(x_{0}) = f_{x_{i}x_{j}}(x_{0})\)</div>
+<p>类似可定义三阶及更高阶偏导数。</p>
+<p>若 \(i \neq j\)，则 \(f_{x_{i}x_{j}}\) 称为<strong>混合偏导数</strong>（交叉偏导数）。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 6.1（Clairaut定理——混合偏导数与次序无关）</h4>
+<p>设 \(f\) 在 \(x_{0}\) 的某邻域内有二阶混合偏导数 \(f_{x_{i}x_{j}}\) 和 \(f_{x_{j}x_{i}}\)，且它们在 \(x_{0}\) 处连续，则</p>
+<div class="formula">\(f_{x_{i}x_{j}}(x_{0}) = f_{x_{j}x_{i}}(x_{0})\)</div>
+<p>即混合偏导数在连续条件下与求导次序无关。</p>
+<p>更一般地，若 \(f\) 的所有 \(k\) 阶偏导数在 \(x_{0}\) 处连续，则 \(k\) 阶偏导数的值不依赖于求导顺序。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（高阶全微分）</h4>
+<p>设 \(f\) 在 \(x_{0}\) 处有 \(k\) 阶连续偏导数，则 \(f\) 在 \(x_{0}\) 处的 <strong>k阶全微分</strong> 定义为</p>
+<div class="formula">\(d^{k}f(x_{0}) = \left(\sum_{i=1}^{n} dx_{i}\frac{\partial}{\partial x_{i}}\right)^{k} f(x_{0})\)</div>
+<p>具体地，二阶全微分为</p>
+<div class="formula">\(d^{2}f(x_{0}) = \sum_{i=1}^{n}\sum_{j=1}^{n} \frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}(x_{0})\,dx_{i}dx_{j}\)</div>
+<p>对二元函数 \(z = f(x, y)\)：</p>
+<div class="formula">\(d^{2}f = f_{xx}\,dx^{2} + 2f_{xy}\,dx\,dy + f_{yy}\,dy^{2}\)</div>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 6.2（全微分条件——恰当微分）</h4>
+<p>设 \(P(x, y), Q(x, y)\) 在单连通区域 \(D \subset \mathbb{R}^{2}\) 上有连续偏导数。则存在函数 \(u(x, y)\) 使得</p>
+<div class="formula">\(du = P\,dx + Q\,dy\)</div>
+<p>（即 \(P\,dx + Q\,dy\) 为<strong>恰当微分</strong>）的充要条件是</p>
+<div class="formula">\(\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x},\quad \forall (x,y) \in D\)</div>
+<p>此时</p>
+<div class="formula">\(u(x, y) = \int_{x_{0}}^{x} P(t, y_{0})\,dt + \int_{y_{0}}^{y} Q(x, s)\,ds + C\)</div>
+<p>或通过曲线积分 \(u(x, y) = \int_{(x_{0}, y_{0})}^{(x, y)} P\,dx + Q\,dy + C\) 求得。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（高阶导数与向量记法）</h4>
+<p>若 \(f \in C^{k}(D)\) 表示 \(f\) 在 \(D\) 上具有直到 \(k\) 阶的连续偏导数。\(f \in C^{\infty}(D)\) 表示 \(f\) 具有任意阶连续偏导数（光滑函数）。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

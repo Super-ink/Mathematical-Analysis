@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§2 多元函数的极限 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§2 多元函数的极限</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（多元函数）</h4>
+<p>设 \(D \subset \mathbb{R}^{n}\) 是非空子集，若存在对应法则 \(f\)，使得对任意 \(x = (x_{1}, \ldots, x_{n}) \in D\)，有唯一确定的实数 \(y \in \mathbb{R}\) 与之对应，则称 \(f\) 为定义在 \(D\) 上的<strong>n元函数</strong>，记作</p>
+<div class="formula">\(f: D \to \mathbb{R},\quad y = f(x) = f(x_{1}, \ldots, x_{n})\)</div>
+<p>\(D\) 称为 <strong>定义域</strong>。类似地可定义 <strong>向量值函数</strong> \(f: D \to \mathbb{R}^{m}\)。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（多元函数的极限）</h4>
+<p>设 \(f\) 在 \(x_{0} \in \mathbb{R}^{n}\) 的某去心邻域 \(\mathring{U}(x_{0})\) 上有定义，\(A \in \mathbb{R}\)。若 \(\forall \varepsilon > 0\)，\(\exists \delta > 0\)，使得当 \(0 < \|x - x_{0}\| < \delta\) 时，有</p>
+<div class="formula">\(|f(x) - A| < \varepsilon\)</div>
+<p>则称 \(f(x)\) 当 \(x \to x_{0}\) 时以 \(A\) 为<strong>极限</strong>，记作</p>
+<div class="formula">\(\lim_{x \to x_{0}} f(x) = A \quad \text{或} \quad \lim_{(x_{1}, \ldots, x_{n}) \to (x_{1}^{0}, \ldots, x_{n}^{0})} f(x_{1}, \ldots, x_{n}) = A\)</div>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 2.1（Heine定理——归结原则）</h4>
+<p>\(\lim\limits_{x \to x_{0}} f(x) = A\) 的充要条件是：对任意满足 \(x_{k} \neq x_{0}\) 且 \(\lim\limits_{k\to\infty} x_{k} = x_{0}\) 的点列 \(\{x_{k}\}\)，都有</p>
+<div class="formula">\(\lim_{k\to\infty} f(x_{k}) = A\)</div>
+<p>该定理建立了函数极限与点列极限之间的联系，常用于证明极限不存在（构造两条不同路径）。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（累次极限与重极限）</h4>
+<p>对二元函数 \(f(x, y)\)，在 \((x_{0}, y_{0})\) 处：</p>
+<p>(1) <strong>重极限</strong>（二重极限）：\(\lim\limits_{(x,y) \to (x_{0},y_{0})} f(x, y)\)，要求 \((x,y)\) 以任意方式趋于 \((x_{0}, y_{0})\) 时极限存在且相等。</p>
+<p>(2) <strong>累次极限</strong>：\(\lim\limits_{x \to x_{0}} \lim\limits_{y \to y_{0}} f(x, y)\) 或 \(\lim\limits_{y \to y_{0}} \lim\limits_{x \to x_{0}} f(x, y)\)，即逐次求极限。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注（重极限与累次极限的关系）</h4>
+<p>(1) 重极限存在且两个累次极限也存在，则它们必然相等。</p>
+<p>(2) 累次极限存在且相等不能推出重极限存在（反例：\(f(x,y) = \frac{xy}{x^{2}+y^{2}}\) 在 \((0,0)\) 处两个累次极限均为0，但重极限不存在）。</p>
+<p>(3) 重极限存在不能保证累次极限存在（反例：\(f(x,y) = (x+y)\sin\frac{1}{x}\sin\frac{1}{y}\) 在 \((0,0)\) 处重极限为0，但累次极限不存在）。</p>
+</div>
+
+<div class="knowledge-item definition">
+<h4>定义（向量值函数的极限）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}^{m}\)，\(f(x) = (f_{1}(x), \ldots, f_{m}(x))\)。称 \(\lim\limits_{x \to x_{0}} f(x) = A = (A_{1}, \ldots, A_{m})\) 当且仅当</p>
+<div class="formula">\(\lim_{x \to x_{0}} \|f(x) - A\| = 0 \iff \lim_{x \to x_{0}} f_{i}(x) = A_{i},\quad i = 1, \ldots, m\)</div>
+<p>即向量值函数的极限按分量收敛。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 2.2（极限的四则运算）</h4>
+<p>设 \(\lim\limits_{x \to x_{0}} f(x) = A\)，\(\lim\limits_{x \to x_{0}} g(x) = B\)，则</p>
+<p>(1) \(\lim(f \pm g) = A \pm B\)；</p>
+<p>(2) \(\lim(f \cdot g) = A \cdot B\)；</p>
+<p>(3) 若 \(B \neq 0\)，则 \(\lim(f/g) = A/B\)。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>

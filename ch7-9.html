@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>§9 极值问题 - 数学分析知识点</title>
+<link href="style.css" rel="stylesheet"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+<body>
+<header>
+<div class="container">
+<h1>数学分析知识点</h1>
+<p>第七章 多元函数微分学</p>
+</div>
+</header>
+<div class="container">
+<a class="back-link" href="ch7.html">← 返回目录</a>
+<div class="content-section">
+<h2>§9 极值问题</h2>
+
+<div class="knowledge-item definition">
+<h4>定义（极值）</h4>
+<p>设 \(f: D \subset \mathbb{R}^{n} \to \mathbb{R}\)，\(x_{0} \in D\)。若存在邻域 \(U(x_{0}) \subset D\)，使得对任意 \(x \in U(x_{0})\)，有</p>
+<p>(1) \(f(x) \le f(x_{0})\)，则称 \(x_{0}\) 为 \(f\) 的<strong>极大值点</strong>（或<strong>局部极大值点</strong>），\(f(x_{0})\) 为极大值；</p>
+<p>(2) \(f(x) \ge f(x_{0})\)，则称 \(x_{0}\) 为 \(f\) 的<strong>极小值点</strong>，\(f(x_{0})\) 为极小值。</p>
+<p>若不等号严格成立（\(x \neq x_{0}\)），则称为<strong>严格极大值</strong>或<strong>严格极小值</strong>。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 9.1（Fermat引理——极值的必要条件）</h4>
+<p>设 \(f\) 在 \(x_{0}\) 处可微，且 \(x_{0}\) 为 \(f\) 的极值点（局部极大或极小），则</p>
+<div class="formula">\(\frac{\partial f}{\partial x_{1}}(x_{0}) = \frac{\partial f}{\partial x_{2}}(x_{0}) = \cdots = \frac{\partial f}{\partial x_{n}}(x_{0}) = 0\)</div>
+<p>即 \(\nabla f(x_{0}) = 0\)。满足该条件的点称为<strong>驻点（稳定点）</strong>。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>注</h4>
+<p>梯度为零是极值的必要条件而非充分条件。例如 \(f(x,y) = xy\) 在 \((0,0)\) 处梯度为零，但该点为鞍点（非极值点）。</p>
+</div>
+
+<div class="knowledge-item theorem">
+<h4>定理 9.2（二阶导数判别法）</h4>
+<p>设 \(f \in C^{2}(D)\)，\(x_{0} \in D\) 为驻点（\(\nabla f(x_{0}) = 0\)）。记Hessian矩阵</p>
+<div class="formula">\(H = \nabla^{2}f(x_{0}) = \begin{pmatrix}
+\frac{\partial^{2}f}{\partial x_{1}^{2}} & \cdots & \frac{\partial^{2}f}{\partial x_{1}\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial^{2}f}{\partial x_{n}\partial x_{1}} & \cdots & \frac{\partial^{2}f}{\partial x_{n}^{2}}
+\end{pmatrix}_{x=x_{0}}\)</div>
+<p>则：</p>
+<p>(1) 若 \(H\) 正定（所有顺序主子式 \(> 0\)），则 \(x_{0}\) 为严格极小值点；</p>
+<p>(2) 若 \(H\) 负定（所有顺序主子式 \((-1)^{k}A_{k} > 0\)，即奇数阶主子式 \(< 0\)，偶数阶主子式 \(> 0\)），则 \(x_{0}\) 为严格极大值点；</p>
+<p>(3) 若 \(H\) 不定，则 \(x_{0}\) 为鞍点（非极值点）；</p>
+<p>(4) 若 \(H\) 半定，则无法直接判定，需用更高阶项。</p>
+</div>
+
+<div class="knowledge-item note">
+<h4>二元情形的判别公式</h4>
+<p>对二元函数 \(z = f(x, y)\)，记 \(A = f_{xx}\)，\(B = f_{xy}\)，\(C = f_{yy}\)，\(\Delta = AC - B^{2}\)：</p>
+<p>(1) 若 \(\Delta > 0\) 且 \(A > 0\)，则为严格极小值；</p>
+<p>(2) 若 \(\Delta > 0\) 且 \(A < 0\)，则为严格极大值；</p>
+<p>(3) 若 \(\Delta < 0\)，则为鞍点；</p>
+<p>(4) 若 \(\Delta = 0\)，需进一步判定。</p>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 1</h4>
+<p>求 \(f(x,y) = x^{4} + y^{4} - 2x^{2}\) 的极值。</p>
+<p><strong>解</strong>：解 \(f_{x} = 4x^{3} - 4x = 0\)，\(f_{y} = 4y^{3} = 0\)，得驻点 \((-1,0), (0,0), (1,0)\)。</p>
+<p>\(f_{xx} = 12x^{2} - 4\)，\(f_{xy} = 0\)，\(f_{yy} = 12y^{2}\)。</p>
+<p>在 \((-1,0)\) 处：\(A = 8\)，\(B = 0\)，\(C = 0\)，\(\Delta = 0\)，需进一步分析。\(f(x,y) = (x^{2}-1)^{2} + y^{4} - 1\)，故 \(f(-1,0) = -1\) 为极小值。</p>
+<p>在 \((1,0)\) 处类似，\(f(1,0) = -1\) 为极小值。</p>
+<p>在 \((0,0)\) 处：\(A = -4\)，\(B = 0\)，\(C = 0\)，\(\Delta = 0\)。沿 \(y=0\) 有 \(f(x,0) = x^{4} - 2x^{2} \le 0\)（附近），沿 \(x=0\) 有 \(f(0,y) = y^{4} \ge 0\)，故 \((0,0)\) 不是极值点。</p>
+</div>
+
+<div class="knowledge-item example">
+<h4>例 2（最小二乘法）</h4>
+<p>给定数据点 \((x_{1}, y_{1}), \ldots, (x_{n}, y_{n})\)，求线性拟合 \(y = ax + b\) 使误差平方和最小：</p>
+<div class="formula">\(S(a,b) = \sum_{i=1}^{n} (ax_{i} + b - y_{i})^{2}\)</div>
+<p><strong>解</strong>：由极值必要条件：</p>
+<div class="formula">\(\frac{\partial S}{\partial a} = 2\sum_{i=1}^{n} (ax_{i} + b - y_{i})x_{i} = 0,\quad \frac{\partial S}{\partial b} = 2\sum_{i=1}^{n} (ax_{i} + b - y_{i}) = 0\)</div>
+<p>得法方程组：</p>
+<div class="formula">\(\begin{cases}
+\displaystyle a\sum x_{i}^{2} + b\sum x_{i} = \sum x_{i}y_{i} \\[8pt]
+\displaystyle a\sum x_{i} + nb = \sum y_{i}
+\end{cases}\)</div>
+<p>Hessian矩阵 \(\nabla^{2}S = \begin{pmatrix} 2\sum x_{i}^{2} & 2\sum x_{i} \\ 2\sum x_{i} & 2n \end{pmatrix}\) 正定，故解唯一且为全局极小值。</p>
+</div>
+
+</div>
+</div>
+<footer>
+<p>数学分析知识点整理</p>
+</footer>
+</body>
+</html>
