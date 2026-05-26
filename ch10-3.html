@@ -24,23 +24,19 @@
 <p>级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\)（\(a_{n} &gt; 0\)）称为<strong>交错级数</strong>。</p>
 </div>
 <div class="knowledge-item definition">
-<h4>定义（Leibniz级数）</h4>
+<h4>定义（Leibniz莱布尼茨级数）</h4>
 <p>若交错级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 满足：</p>
 <p>(1) \(a_{n+1} \le a_{n}\)（\(n = 1, 2, \ldots\)）</p>
 <p>(2) \(\lim\limits_{n\to+\infty} a_{n} = 0\)</p>
 <p>则称此级数为<strong>Leibniz级数</strong>。</p>
 </div>
 <div class="knowledge-item theorem">
-<h4>定理 3.1（Leibniz判别法）</h4>
+<h4>定理 3.1（Leibniz莱布尼茨判别法）</h4>
 <p>Leibniz级数必收敛。</p>
 </div>
 <div class="knowledge-item note">
 <h4>注 1</h4>
 <p>Leibniz级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 的余和 \(r_{n} = \sum\limits_{k=n+1}^{+\infty} (-1)^{k+1} a_{k}\) 的符号与首项 \((-1)^{n+2} a_{n+1}\) 的符号相同，且有 \(|r_{n}| \le a_{n+1}\)。</p>
-</div>
-<div class="knowledge-item note">
-<h4>注 2</h4>
-<p>若交错级数 \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1} a_{n}\) 中 \(\{a_{n}\}\) 不满足单调递减，则定理不成立。</p>
 </div>
 <h3>3.2 绝对收敛与条件收敛</h3>
 <div class="knowledge-item definition">
@@ -48,13 +44,9 @@
 <p>若 \(\sum\limits_{n=1}^{+\infty} |a_{n}|\) 收敛，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) <strong>绝对收敛</strong>。</p>
 <p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛，但 \(\sum\limits_{n=1}^{+\infty} |a_{n}|\) 发散，则称 \(\sum\limits_{n=1}^{+\infty} a_{n}\) <strong>条件收敛</strong>。</p>
 </div>
-<div class="knowledge-item note">
-<h4>注</h4>
-<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 绝对收敛，则 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 收敛。故收敛级数分为绝对收敛和条件收敛两类。</p>
-</div>
-<h3>3.3 Abel判别法与Dirichlet判别法</h3>
+<h3>3.3 Abel阿贝尔判别法与Dirichlet狄利克雷判别法</h3>
 <div class="knowledge-item lemma">
-<h4>引理 3.1（Abel变换/分部求和公式）</h4>
+<h4>引理 3.1（Abel阿贝尔变换/分部求和公式）</h4>
 <p>设 \(\{a_{n}\}, \{b_{n}\}\) 是两个数列，记 \(B_{n} = \sum\limits_{i=1}^{n} b_{i}\)（\(n = 1, 2, \ldots\)），则</p>
 <div class="formula">\(\sum\limits_{i=1}^{n} a_{i}b_{i} = a_{n}B_{n} - \sum\limits_{i=1}^{n-1} (a_{i+1} - a_{i})B_{i}\)</div>
 </div>
@@ -63,7 +55,7 @@
 <p>Abel变换是离散形式的分部积分公式，故亦称为分部求和公式。</p>
 </div>
 <div class="knowledge-item lemma">
-<h4>引理 3.2（Abel引理）</h4>
+<h4>引理 3.2（Abel阿贝尔引理）</h4>
 <p>设</p>
 <p>(1) \(\{a_{n}\}\) 为单调数列，</p>
 <p>(2) \(\{B_{n}\}\) 为有界数列，即存在 \(M &gt; 0\)，使得 \(\forall n \in \mathbb{N}, |B_{n}| \le M\)。</p>
@@ -71,8 +63,8 @@
 <div class="formula">\(\bigl|\sum\limits_{i=1}^{n} a_{i}b_{i}\bigr| \le M(|a_{1}| + 2|a_{n}|)\)</div>
 </div>
 <div class="knowledge-item theorem">
-<h4>定理 3.2（Dirichlet判别法）</h4>
-<p>若 \(\{a_{n}\}\) 单调且 \(\lim\limits_{n\to+\infty} a_{n} = 0\)，\(\{\sum\limits_{i=1}^{n} b_{i}\}\) 有界，则 \(\sum\limits_{n=1}^{+\infty} a_{n}b_{n}\) 收敛。</p>
+<h4>定理 3.2（Dirichlet狄利克雷判别法）</h4>
+<p>若 \(\{a_{n}\}\) 单调且 \(\lim\limits_{n\to+\infty} a_{n} = 0\)，部分和\(\{\sum\limits_{i=1}^{n} b_{i}\}\) 有界，则 \(\sum\limits_{n=1}^{+\infty} a_{n}b_{n}\) 收敛。</p>
 </div>
 <div class="knowledge-item note">
 <h4>注</h4>
@@ -84,7 +76,7 @@
 <p>这是因为 \(\sum\limits_{k=1}^{n} \sin kx = \frac{\cos\frac{x}{2} - \cos(n+\frac{1}{2})x}{2\sin\frac{x}{2}}\) 有界，由Dirichlet判别法即得。</p>
 </div>
 <div class="knowledge-item theorem">
-<h4>定理 3.3（Abel判别法）</h4>
+<h4>定理 3.3（Abel阿贝尔判别法）</h4>
 <p>若 \(\{a_{n}\}\) 单调有界，\(\sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，则 \(\sum\limits_{n=1}^{+\infty} a_{n}b_{n}\) 收敛。</p>
 </div>
 <h3>3.4 绝对收敛级数与条件收敛级数的性质</h3>
@@ -108,13 +100,13 @@
 <p>上述定理说明对绝对收敛的无穷级数，加法交换律成立。</p>
 </div>
 <div class="knowledge-item theorem">
-<h4>定理 3.5（Riemann重排定理）</h4>
-<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 条件收敛，则 \(\forall a \in [-\infty, +\infty]\)，都存在 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 的一个重排 \(\gamma\) 满足</p>
-<div class="formula">\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)} = a\)</div>
+<h4>定理 3.5（Riemann黎曼重排定理）</h4>
+<p>若 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 条件收敛，则 \(\forall A \in [-\infty, +\infty]\)，都存在 \(\sum\limits_{n=1}^{+\infty} a_{n}\) 的一个重排 \(\gamma\) 满足</p>
+<div class="formula">\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)} = A\)</div>
 </div>
 <div class="knowledge-item note">
 <h4>注</h4>
-<p>在上述定理中，当 \(a = \pm\infty\) 时，\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)}\) 发散。</p>
+<p>在上述定理中，当 \(A = \pm\infty\) 时，\(\sum\limits_{n=1}^{+\infty} a_{\gamma(n)}\) 发散。</p>
 </div>
 <div class="knowledge-item note">
 <h4>例（Riemann重排）</h4>
@@ -160,10 +152,6 @@
 <h4>定理 3.8（Abel定理）</h4>
 <p>若级数 \(\sum\limits_{n=1}^{+\infty} a_{n}, \sum\limits_{n=1}^{+\infty} b_{n}\) 收敛，且它们的Cauchy乘积 \(\sum\limits_{n=1}^{+\infty} c_{n}\) 也收敛，则</p>
 <div class="formula">\(\sum\limits_{n=1}^{+\infty} c_{n} = \bigl(\sum\limits_{n=1}^{+\infty} a_{n}\bigr)\bigl(\sum\limits_{n=1}^{+\infty} b_{n}\bigr)\)</div>
-</div>
-<div class="knowledge-item note">
-<h4>注</h4>
-<p>定理3.7和3.8的证明参见菲赫金哥尔茨《微积分学教程》第二卷。</p>
 </div>
 </div>
 </div>
